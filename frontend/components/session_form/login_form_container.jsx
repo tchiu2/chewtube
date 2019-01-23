@@ -6,7 +6,7 @@ import { login, clearErrors } from '../../actions/session_actions';
 
 const msp = ({ errors: { session }}) => {
   return {
-    user: { username: '', password: '' },
+    user: { userOrEmail: '', password: '' },
     errors: session,
     formType: 'login',
     navLink: <Link to="/signup">Create account</Link>,

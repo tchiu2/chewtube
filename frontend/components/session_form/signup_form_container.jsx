@@ -6,7 +6,7 @@ import { signup, clearErrors } from '../../actions/session_actions';
 
 const msp = ({ errors: { session }}) => {
   return {
-    user: { username: '', password: '', email: '' },
+    user: { userOrEmail: '', password: '' },
     errors: session,
     formType: 'signup',
     navLink: <Link to="/login">Sign in</Link>,

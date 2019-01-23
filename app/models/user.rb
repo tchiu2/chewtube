@@ -7,8 +7,8 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  def self.find_by_credentials(username, password)
-    user = User.find_by(username: username)
+  def self.find_by_credentials(user_or_email, password)
+    user = User.where('username LIKE :query OR email LIKE :query', query: user_or_email).first
     user && user.is_password?(password) ? user : nil
   end
 
