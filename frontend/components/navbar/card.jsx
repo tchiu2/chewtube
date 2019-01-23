@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CardItem from './card_item.jsx';
 
 class Card extends Component {
   constructor() {
@@ -19,11 +20,9 @@ class Card extends Component {
   }
 
   closeMenu(e) {
-    if (!this.dropdownMenu.contains(event.target)) {
-      this.setState({ showMenu: false }, () => {
-        document.removeEventListener('click', this.closeMenu);
-      });
-    }
+    this.setState({ showMenu: false }, () => {
+      document.removeEventListener('click', this.closeMenu);
+    });
   }
 
   render() {
@@ -42,9 +41,8 @@ class Card extends Component {
                 this.dropdownMenu = element;
               }}
             >
-					    <button className="navbar-card-item" onClick={this.props.logout}>Log out</button>
-					    <button className="navbar-card-item" onClick={this.props.logout}>Log out</button>
-					    <button className="navbar-card-item" onClick={this.props.logout}>Log out</button>
+              <CardItem className="user-info-card" label={`${this.props.user.username}#${this.props.user.email}`}></CardItem>
+              <CardItem label={'Sign out'} action={this.props.logout} />
             </div>
           ) : (
             null

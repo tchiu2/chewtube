@@ -9,9 +9,59 @@
   text-align: center;
   line-height: 50%;
   margin-right: 8px;
-  background-color: black;
+  background-color: #ccc;
   box-sizing: border-box;
   padding: 8px;
   color: white;
   text-transform: uppercase;
+  font-weight: 500;
+}
+
+.menu {
+  position: absolute;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.4);
+  top: 45px;
+  right: 0;
+  padding-bottom: 8px;
+}
+
+.user-info-card {
+	background-color: #eee;
+  padding: 16px;
+}
+
+.user-info-card div:first-child {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.navbar-card-item {
+  padding: 8px 16px;
+	font-size: 14px;
+	cursor: pointer;
+  display: flex;
+  min-height: 40px;
+  line-height: 24px;
+  letter-spacing: 0.25px;
+  align-items: center;
+}
+
+.navbar-card-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  text-align: center;
+  line-height: 50%;
+  margin-right: 24px;
+  background-color: darkgreen;
+  box-sizing: border-box;
+  padding: 8px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500;
 }
