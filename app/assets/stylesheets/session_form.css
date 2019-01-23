@@ -69,7 +69,7 @@
 }
 
 .input-errors {
-  border 2px solid rgb(213, 0, 0);
+  border: 2px solid rgb(213, 0, 0);
 }
 
 .session-form-errors-container {
