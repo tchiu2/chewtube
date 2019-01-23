@@ -2,20 +2,20 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 const NavBar = ({ currentUser, logout }) => (
-  <div>
-    <h1 className="header-logo">chewtube</h1>
-    <div className="header-search-container">
-      <div className="header-search-input-container">
+  <div className="navbar-container">
+    <h1 className="navbar-logo">chewtube</h1>
+    <div className="navbar-search-container">
+      <div className="navbar-search-input-container">
         <input type="text" placeholder="Search"/>
       </div>
     </div>
     <div>
       {currentUser === undefined ? (
-        <Link to='/login'>Sign In</Link>
+        <Link className="navbar-btn" to='/login'>Sign In</Link>
       ) : ( 
         <div>
 					{currentUser.username}
-					<button onClick={logout}>Log out</button>
+					<button className="navbar-btn" onClick={logout}>Log out</button>
 				</div>
       )}
     </div>

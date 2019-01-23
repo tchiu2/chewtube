@@ -1,0 +1,41 @@
+.navbar-container {
+  background-color: white;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+	height: 56px;
+  align-items: center;
+  padding: 0 16px;
+  color: rgb(17, 17, 17);
+}
+.navbar-logo {
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.navbar-search-container {
+  display: flex;
+  box-shadow: inset 0 1px 2px #eee;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+.navbar-search-input-container {
+  padding: 2px 6px;
+}
+
+.navbar-search-container input {
+  padding: 1px;
+  margin-left: 4px; 
+}
+
+.navbar-btn {
+  padding: 10px 16px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 2px;
+  color: rgb(6, 95, 212);
+}
