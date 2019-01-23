@@ -1,0 +1,17 @@
+.navbar-card {
+  position: relative;
+}
+
+.navbar-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 50%;
+  margin-right: 8px;
+  background-color: black;
+  box-sizing: border-box;
+  padding: 8px;
+  color: white;
+  text-transform: uppercase;
+}

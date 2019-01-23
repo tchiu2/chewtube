@@ -103,8 +103,14 @@ class SessionForm extends Component {
           <div className="session-form-links-container">
             <p>
               {this.props.navLink}
-              or
-              <a className="session-form-link" onClick={this.loginAsGuest}>Sign in as guest</a>
+              {
+                this.props.formType === 'signup' ? ( "" ) : (
+                  <>
+                    or
+                    <a className="session-form-link" onClick={this.loginAsGuest}>Sign in as guest</a>
+                  </>
+                )
+              }
             </p>
             <button id="session-submit" className="session-form-btn">{this.props.formType}</button>
           </div>

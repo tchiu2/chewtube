@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Card from './card';
 
 const NavBar = ({ currentUser, logout }) => (
   <div className="navbar-container">
@@ -14,8 +15,7 @@ const NavBar = ({ currentUser, logout }) => (
         <Link className="navbar-btn" to='/login'>Sign In</Link>
       ) : ( 
         <div>
-					{currentUser.username}
-					<button className="navbar-btn" onClick={logout}>Log out</button>
+          <Card user={currentUser} logout={logout} />
 				</div>
       )}
     </div>
