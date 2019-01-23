@@ -64,8 +64,25 @@
 	line-height: 24px;
 }
 
+.session-form-input:focus { 
+  border: 2px solid #1a73e8;
+}
+
+.input-errors {
+  border 2px solid rgb(213, 0, 0);
+}
+
 .session-form-errors-container {
   padding-top: 8px;
+  display: flex;
+  width: 100%;
+}
+
+.session-form-errors {
+  color: rgb(213, 0, 0);
+  font-size: 12px;
+  padding-left: 32px;
+  letter-spacing: 0.25px;
 }
 
 .session-form-links-container {

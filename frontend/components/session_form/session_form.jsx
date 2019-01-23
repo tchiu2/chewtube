@@ -66,10 +66,11 @@ class SessionForm extends Component {
             <div className="session-form-input-field">
               <input 
                className="session-form-input" 
+               id="username"
                type="text" 
                onChange={this.update((this.props.formType === 'signup' ? "username" : "userOrEmail"))}
                value={this.props.formType === 'signup' ? this.state.username : this.state.userOrEmail} 
-               placeholder={this.props.formType === 'signup' ? 'Username' : 'Username/Email'}/>
+               placeholder={this.props.formType === 'signup' ? 'Username' : 'Username or email'}/>
             </div>
      
             <div className="session-form-input-field"
