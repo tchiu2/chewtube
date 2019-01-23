@@ -6,16 +6,17 @@ import { signup, clearErrors } from '../../actions/session_actions';
 
 const msp = ({ errors: { session }}) => {
   return {
-    user: { userOrEmail: '', password: '' },
+    user: { username: '', email: '', password: '' },
     errors: session,
     formType: 'signup',
-    navLink: <Link to="/login">Sign in</Link>,
+    navLink: <Link to="/login" className="session-form-link">Sign in instead</Link>,
   };
 };
 
 const mdp = dispatch => {
   return {
     processForm: user => dispatch(signup(user)),
+    clearErrors: () => dispatch(clearErrors()),
   };
 };
 

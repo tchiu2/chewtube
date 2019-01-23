@@ -1,0 +1,98 @@
+.session-form-container {
+	display: flex;
+	align-items: center;
+  height: 100%;
+}
+
+.session-form-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 450px;
+  margin: auto;
+  padding: 48px 40px 36px 40px;
+}
+
+.session-form-logo {
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.session-form-heading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+}
+
+.session-form-heading {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.session-form-heading-subtext {
+  padding-top: 8px;
+  font-size: 16px;
+}
+
+.session-form-input-container {
+  display: flex;
+  flex-direction: column;
+  width: 368px;
+  padding-top: 24px;
+}
+
+.session-form-input-field {
+  padding: 8px 0;
+  display: flex;
+  width: 100%;
+}
+
+.session-form-input-field[hidden] {
+  display: none;
+}
+
+.session-form-input {
+  flex: 1;
+  padding: 13px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+	line-height: 24px;
+}
+
+.session-form-errors-container {
+  padding-top: 8px;
+}
+
+.session-form-links-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding-top: 16px;
+}
+
+.session-form-link {
+  font-size: 14px;
+  margin: 8px;
+  font-weight: 500;
+  color: rgb(6, 95, 212);
+  letter-spacing: 0.25px;
+}
+
+.session-form-btn {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.25px;
+  border-radius: 4px;
+  color: white;
+  background: #1a73e8;
+  min-width: 88px;
+  height: 36px;
+  line-height: 20px;
+  text-align: center;
+  text-transform: capitalize;
+}

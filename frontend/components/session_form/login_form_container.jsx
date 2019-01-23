@@ -9,13 +9,14 @@ const msp = ({ errors: { session }}) => {
     user: { userOrEmail: '', password: '' },
     errors: session,
     formType: 'login',
-    navLink: <Link to="/signup">Create account</Link>,
+    navLink: <Link to="/signup" className="session-form-link">Create account</Link>,
   };
 };
 
 const mdp = dispatch => {
   return {
     processForm: user => dispatch(login(user)),
+    clearErrors: () => dispatch(clearErrors()),
   };
 };
 
