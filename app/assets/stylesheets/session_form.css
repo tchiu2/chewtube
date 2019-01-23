@@ -72,6 +72,7 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
   padding-top: 16px;
 }
 
@@ -81,6 +82,7 @@
   font-weight: 500;
   color: rgb(6, 95, 212);
   letter-spacing: 0.25px;
+  cursor: pointer;
 }
 
 .session-form-btn {

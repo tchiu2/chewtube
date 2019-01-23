@@ -5,6 +5,8 @@ class SessionForm extends Component {
     super(props);
     this.state = this.props.user;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.loginAsGuest = this.loginAsGuest.bind(this);
+    this.loginAsGuestHelper = this.loginAsGuestHelper.bind(this);
   }
 
   componentWillUnmount() {
@@ -19,6 +21,34 @@ class SessionForm extends Component {
   update(field) {
     return (e) => {
       this.setState({ [field]: e.target.value });
+    }
+  }
+
+  loginAsGuest(e) {
+    e.preventDefault();
+    const userOrEmail = 'demouser@gmail.com'.split('');
+    const password = 'password'.split('');
+    const submit = document.getElementById('session-submit');
+    this.setState({userOrEmail: '', password: ''}, () => 
+      this.loginAsGuestHelper(userOrEmail, password, submit)
+    );
+  }
+
+  loginAsGuestHelper(userOrEmail, password, submit) {
+    if (userOrEmail.length > 0) {
+      this.setState(
+        { userOrEmail: this.state.userOrEmail + userOrEmail.shift() }, () => {
+          window.setTimeout(() => this.loginAsGuestHelper(userOrEmail, password, submit), 50);
+        }
+      );
+    } else if (password.length > 0) {
+      this.setState(
+        { password: this.state.password + password.shift() }, () => {
+          window.setTimeout(() => this.loginAsGuestHelper(userOrEmail, password, submit), 75);
+        }
+      );
+    } else {
+      submit.click();
     }
   }
 
@@ -67,10 +97,16 @@ class SessionForm extends Component {
             </div>
           </div>
 
+          <div className="session-form-guest-login-container">
+          </div>
           
           <div className="session-form-links-container">
-						{this.props.navLink}
-            <button className="session-form-btn">{this.props.formType}</button>
+            <p>
+              {this.props.navLink}
+              or
+              <a className="session-form-link" onClick={this.loginAsGuest}>Sign in as guest</a>
+            </p>
+            <button id="session-submit" className="session-form-btn">{this.props.formType}</button>
           </div>
         </form>
       </div>
