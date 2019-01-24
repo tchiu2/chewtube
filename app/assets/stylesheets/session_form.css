@@ -74,8 +74,20 @@
           transition: all 0.2s ease-in-out;
 }
 
-.session-form-input:focus + .session-form-input-label, 
 .session-form-input:valid + .session-form-input-label {
+  opacity: 1;
+  position: absolute;
+  top: 13px;
+  left: 16px;
+  color: #ccc;
+  background: white;
+  font-size: 12px;
+  padding: 3px;
+ 	-webkit-transform: translate3d(0, -10px, 0);
+					transform: translate3d(0, -10px, 0);
+}
+
+.session-form-input:focus + .session-form-input-label {
   opacity: 1;
   position: absolute;
   top: 13px;
@@ -88,7 +100,7 @@
 					transform: translate3d(0, -10px, 0);
 }
 
-.session-form-input:focus, .session-form-input:valid {
+.session-form-input:focus {
   border: 2px solid #1a73e8;
 }
 

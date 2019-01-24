@@ -7,6 +7,8 @@ class SessionForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.loginAsGuest = this.loginAsGuest.bind(this);
     this.loginAsGuestHelper = this.loginAsGuestHelper.bind(this);
+    this.userInput = React.createRef();
+    this.passwordInput = React.createRef();
   }
 
   componentWillUnmount() {
@@ -36,12 +38,14 @@ class SessionForm extends Component {
 
   loginAsGuestHelper(userOrEmail, password, submit) {
     if (userOrEmail.length > 0) {
+      this.userInput.current.focus();
       this.setState(
         { userOrEmail: this.state.userOrEmail + userOrEmail.shift() }, () => {
           window.setTimeout(() => this.loginAsGuestHelper(userOrEmail, password, submit), 50);
         }
       );
     } else if (password.length > 0) {
+      this.passwordInput.current.focus();
       this.setState(
         { password: this.state.password + password.shift() }, () => {
           window.setTimeout(() => this.loginAsGuestHelper(userOrEmail, password, submit), 75);
@@ -68,6 +72,7 @@ class SessionForm extends Component {
                className="session-form-input" 
                required
                id="username"
+               ref={this.userInput}
                type="text" 
                onChange={this.update((this.props.formType === 'signup' ? "username" : "userOrEmail"))}
                value={this.props.formType === 'signup' ? this.state.username : this.state.userOrEmail} 
@@ -80,7 +85,7 @@ class SessionForm extends Component {
               <input className="session-form-input" 
                id="email"
 				       required={this.props.formType === 'signup' ? 'required' : ''}
-               type="email" 
+               type="text" 
                onChange={this.update('email')} 
                value={this.state.email} 
                placeholder="Email"/> 
@@ -91,6 +96,7 @@ class SessionForm extends Component {
               <input 
                required
                id="password"
+               ref={this.passwordInput}
                className="session-form-input"
                type="password" 
                onChange={this.update('password')}
