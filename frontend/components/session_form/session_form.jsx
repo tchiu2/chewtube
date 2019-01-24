@@ -78,9 +78,9 @@ class SessionForm extends Component {
             <div className="session-form-input-field"
              hidden={this.props.formType === 'signup' ? "" : "hidden"}>
               <input className="session-form-input" 
-               required
                id="email"
-               type="text" 
+				       required={this.props.formType === 'signup' ? 'required' : ''}
+               type="email" 
                onChange={this.update('email')} 
                value={this.state.email} 
                placeholder="Email"/> 
