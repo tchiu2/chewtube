@@ -66,28 +66,37 @@ class SessionForm extends Component {
             <div className="session-form-input-field">
               <input 
                className="session-form-input" 
+               required
+               id="username"
                type="text" 
                onChange={this.update((this.props.formType === 'signup' ? "username" : "userOrEmail"))}
                value={this.props.formType === 'signup' ? this.state.username : this.state.userOrEmail} 
                placeholder={this.props.formType === 'signup' ? 'Username' : 'Username or email'}/>
+              <label className="session-form-input-label" htmlFor="username">{this.props.formType === 'signup' ? 'Username' : 'Username or email'}</label>
             </div>
      
             <div className="session-form-input-field"
              hidden={this.props.formType === 'signup' ? "" : "hidden"}>
               <input className="session-form-input" 
+               required
+               id="email"
                type="text" 
                onChange={this.update('email')} 
                value={this.state.email} 
                placeholder="Email"/> 
+              <label className="session-form-input-label" htmlFor="email">Email</label>
             </div>
 
             <div className="session-form-input-field">
               <input 
+               required
+               id="password"
                className="session-form-input"
                type="password" 
                onChange={this.update('password')}
                value={this.state.password} 
                placeholder="Password"/>
+              <label className="session-form-input-label" htmlFor="password">Password</label>
             </div>
           </div>
           
