@@ -7,7 +7,8 @@ class Api::VideosController < ApplicationController
   end
 
   def create
-    if params[:video][:thumbnail] != '' && params[:video][:video] != ''
+    if (params[:video][:thumbnail] != '' && params[:video][:video] != '' &&
+        params[:video][:thumbnail] && params[:video][:video])
       @video = Video.new(video_params)
       if @video.save
         render :show
