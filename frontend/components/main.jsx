@@ -13,7 +13,7 @@ import VideoContainer from './videos/video_container';
 import VideoUploadContainer from './videos/video_upload_container';
 
 const Main = () => (
-  <div>
+  <div className="main-container">
     <header>
       <NavBarContainer /> 
     </header>

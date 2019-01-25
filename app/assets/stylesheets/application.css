@@ -21,3 +21,7 @@ html, body, main, main > div {
 body {
 	font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
 }
+
+.main-container {
+  height: 100%;
+}

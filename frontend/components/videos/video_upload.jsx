@@ -66,49 +66,68 @@ class VideoUpload extends Component {
       formData.append('video[video]', this.state.videoFile);
     }
     
-    this.props.upload(formData);
+    //this.props.upload(formData);
   }
 
   render() {
     return (
-    <form onSubmit={this.handleSubmit} className="video-upload-form-container">
-      <video width="200" height="112"
-        id="video" 
-        src={this.state.videoUrl} 
-        hidden={this.state.videoUrl === "" ? "hidden" : ""}/>
+      <div className="video-upload-form-container">
+        <form onSubmit={this.handleSubmit} className="video-upload-form">
+          <div className="video-file-container">
+            <label 
+              htmlFor="file-input" 
+              className="video-upload-form-icon">
+              { this.state.videoUrl ?
+                (
+                  <video width="250" height="141"
+                    id="video" 
+                    src={this.state.videoUrl} 
+                    hidden={this.state.videoUrl === "" ? "hidden" : ""}/>
+                ) : (
+                  <>
+                    <i className="fas fa-file-upload"></i>
+                    <div className="video-upload-form-icon-text">
+                      Select file to upload
+                    </div>
+                  </>
+                )}
+            </label>
+          </div>
 
-      <img src={this.state.thumbUrl} />
+          <input 
+            className="video-upload-form-file-input"
+            id="file-input"
+            type="file"
+            accept="video/*"
+            onChange={(e) => this.readFile(e)}
+            onClick={(e) => event.target.value = null}
+           />
 
-      <label 
-        htmlFor="file-input" 
-        className="video-upload-form-icon">
-      	<i className="fas fa-file-upload"></i>
-      </label>
+          { this.state.videoUrl ?
+            (
+              <>
+                <div className="video-upload-form-details-container">
+                  <h2 className="video-upload-form-details-header">Video details</h2>
 
-      <input 
-        className="video-upload-form-file-input"
-        id="file-input"
-        type="file"
-        accept="video/*"
-        onChange={(e) => this.readFile(e)}
-        onClick={(e) => event.target.value = null}
-       />
+                  <input
+                    className="video-upload-form-input"
+                    type="text"
+                    placeholder="Title" 
+                    onChange={this.update('title')}
+                  />
 
-      <input
-        className="video-upload-form-input"
-        type="text"
-        placeholder="Title" 
-				onChange={this.update('title')}
-      />
+                  <textarea
+                    className="video-upload-form-description"
+                    placeholder="Description"
+                    onChange={this.update('description')}
+                  />
+                </div>
 
-      <textarea
-        className="video-upload-form-description"
-        placeholder="Description"
-				onChange={this.update('description')}
-      />
-
-      <button className="video-upload-form-submit">Upload video</button>
-    </form>
+                <button className="video-upload-form-submit">Upload</button>
+            </>
+            ) : ("")}
+        </form>
+      </div>
     );
   };
 }
