@@ -9,9 +9,8 @@
   color: rgb(17, 17, 17);
 }
 .navbar-logo {
-  font-size: 18px;
-  font-weight: 700;
-  text-transform: uppercase;
+  width: 100px;
+  height: auto;
 }
 
 .navbar-search-container {

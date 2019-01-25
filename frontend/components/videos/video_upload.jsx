@@ -15,7 +15,6 @@ class VideoUpload extends Component {
       this.setState({ 
         videoUrl: reader.result, 
         videoFile: file, 
-        title: file.name,
       });
 
     if (file) {
@@ -46,16 +45,38 @@ class VideoUpload extends Component {
   render() {
     return (
     <form onSubmit={this.handleSubmit} className="video-upload-form-container">
-      <video id="video" controls width="480" src={this.state.videoUrl} hidden={this.state.videoUrl === "" ? "hidden" : ""}/>
-      <button className="video-upload-form-icon">ICON GOES HERE</button>
+      <video width="200" height="112"
+        id="video" 
+        src={this.state.videoUrl} 
+        hidden={this.state.videoUrl === "" ? "hidden" : ""}/>
+
+      <label 
+        htmlFor="file-input" 
+        className="video-upload-form-icon">
+        ICON GOES HERE
+      </label>
+
       <input 
-        className="video-upload-form-input"
+        className="video-upload-form-file-input"
+        id="file-input"
         type="file"
-        label="Upload file"
         accept="video/*"
         onChange={(e) => this.readFile(e)}
         onClick={(e) => event.target.value = null}
        />
+
+      <input
+        className="video-upload-form-input"
+        type="text"
+        placeholder="Title" 
+      />
+
+      <textarea
+        className="video-upload-form-description"
+        placeholder="Description"
+      />
+
+      <button className="video-upload-form-submit">Upload video</button>
     </form>
     );
   };

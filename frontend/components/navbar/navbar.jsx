@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Card from './card';
+import Logo from '../logo/logo';
 
 const NavBar = ({ currentUser, logout }) => (
   <div className="navbar-container">
-    <h1 className="navbar-logo">chewtube</h1>
+    <Logo className="navbar-logo" />
     <div className="navbar-search-container">
       <div className="navbar-search-input-container">
         <input type="text" placeholder="Search"/>

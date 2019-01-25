@@ -8,7 +8,8 @@ const msp = ({ session: { currentUserId } }) => ({
     title: '',
     description: '', 
     videoFile: '', 
-    thumbnail: ''
+    thumbnail: '',
+    videoUrl: '',
   },
 });
 

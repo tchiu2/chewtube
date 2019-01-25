@@ -16,9 +16,9 @@
 }
 
 .session-form-logo {
-  font-size: 18px;
-  font-weight: 700;
-  text-transform: uppercase;
+  height: 24px;
+  width: auto;
+  margin-bottom: 10px;
 }
 
 .session-form-heading-container {

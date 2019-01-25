@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Logo from '../logo/logo';
 
 class SessionForm extends Component {
   constructor(props) {
@@ -60,7 +61,7 @@ class SessionForm extends Component {
     return (
       <div className="session-form-container">
         <form onSubmit={this.handleSubmit} className="session-form-box">
-          <div className="session-form-logo">chewtube</div>
+          <Logo className="session-form-logo" />
           <div className="session-form-heading-container">
             <h1 className="session-form-heading">{this.props.formType === 'signup' ? "Create your account" : "Sign in"}</h1>
             <div className="session-form-heading-subtext">to continue to chewtube</div>
