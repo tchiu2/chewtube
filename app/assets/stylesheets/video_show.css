@@ -1,0 +1,14 @@
+.video-content-container {
+  margin-left: 24px;
+  padding-top: 24px;
+  position: absolute;
+  width: 75%;
+}
+
+#video-content {
+  width: 100%;
+}
+
+#video-content[poster] {
+  object-fit: fill;
+}

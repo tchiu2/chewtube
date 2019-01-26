@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Logo from '../logo/logo';
+import { Link } from 'react-router-dom';
 
 class SessionForm extends Component {
   constructor(props) {
@@ -61,10 +62,10 @@ class SessionForm extends Component {
     return (
       <div className="session-form-container">
         <form onSubmit={this.handleSubmit} className="session-form-box">
-          <Logo className="session-form-logo" />
+          <Link to="/"><Logo className="session-form-logo" /></Link>
           <div className="session-form-heading-container">
             <h1 className="session-form-heading">{this.props.formType === 'signup' ? "Create your account" : "Sign in"}</h1>
-            <div className="session-form-heading-subtext">to continue to chewtube</div>
+            <div className="session-form-heading-subtext">to continue to ChewTube</div>
           </div>
 
           <div className="session-form-input-container">

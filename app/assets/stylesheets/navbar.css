@@ -32,6 +32,7 @@
 
 .navbar-right-links {
   display: flex;
+  align-items: center;
 }
 
 .navbar-btn {

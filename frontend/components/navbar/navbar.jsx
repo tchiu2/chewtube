@@ -5,7 +5,7 @@ import Logo from '../logo/logo';
 
 const NavBar = ({ currentUser, logout }) => (
   <div className="navbar-container">
-    <Logo className="navbar-logo" />
+    <Link to="/"><Logo className="navbar-logo" /></Link>
     <div className="navbar-search-container">
       <div className="navbar-search-input-container">
         <input type="text" placeholder="Search"/>

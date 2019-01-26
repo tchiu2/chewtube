@@ -1,11 +1,12 @@
 .navbar-card {
   position: relative;
+  margin-left: 16px;
 }
 
 .navbar-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
   text-align: center;
   line-height: 50%;
   margin-right: 8px;
@@ -23,9 +24,13 @@
 }
 
 .navbar-icon.user-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
   background-color: #ccc;
   color: white;
   font-weight: 500;
+  margin-right: 14px;
 }
 
 .menu {
@@ -61,6 +66,10 @@
   line-height: 24px;
   letter-spacing: 0.25px;
   align-items: center;
+}
+
+.navbar-card-item:hover {
+  background-color: #eee;
 }
 
 .user-info-card {
