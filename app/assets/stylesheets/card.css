@@ -3,17 +3,28 @@
 }
 
 .navbar-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
   text-align: center;
   line-height: 50%;
   margin-right: 8px;
-  background-color: #ccc;
   box-sizing: border-box;
   padding: 8px;
-  color: white;
   text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.4);
+  font-size: 1rem;
+  transition: all 0.15s ease-in-out;
+}
+
+.navbar-icon:active {
+  background: rgba(10, 10, 10, 0.1);
+  transition: all 0.15s ease-in-out;
+}
+
+.navbar-icon.user-icon {
+  background-color: #ccc;
+  color: white;
   font-weight: 500;
 }
 
@@ -24,24 +35,25 @@
   flex-direction: column;
   background-color: white;
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.4);
-  top: 45px;
+  top: 36px;
   right: 0;
-  padding-bottom: 8px;
 }
 
-.user-info-card {
-	background-color: #eee;
-  padding: 16px;
+.menu-items {
+  padding: 8px 0;
 }
 
 .user-info-card div:first-child {
   font-weight: 500;
   font-size: 16px;
+}
+
+.user-info-card div {
   line-height: 20px;
 }
 
 .navbar-card-item {
-  padding: 8px 16px;
+  padding: 0px 16px;
 	font-size: 14px;
 	cursor: pointer;
   display: flex;
@@ -51,17 +63,30 @@
   align-items: center;
 }
 
+.user-info-card {
+	background-color: #eee;
+  padding: 16px;
+}
+
 .navbar-card-icon {
-  width: 30px;
-  height: 30px;
-  border-radius: 15px;
+  width: 32px;
+  height: 32px;
   text-align: center;
   line-height: 50%;
   margin-right: 24px;
-  background-color: darkgreen;
   box-sizing: border-box;
   padding: 8px;
+  font-size: 18px;
+  color: rgb(96, 96, 96);
+}
+
+.user-info-card > .navbar-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: darkgreen;
   color: white;
   text-transform: uppercase;
-  font-weight: 500;
+  margin-right: 16px;
+  font-size: 20px;
 }

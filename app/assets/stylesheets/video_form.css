@@ -22,7 +22,6 @@
 
 #video {
   border: 1px solid #eee;
-  box-shadow: inset 0 0 1px 1px #aaa;
   background: #ddd;
 }
 
@@ -32,7 +31,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.video-upload-form-icon:hover {
   cursor: pointer;
+  color: #f7941c;
 }
 
 .video-upload-form-icon-text {
@@ -55,10 +58,11 @@
 }
 
 .video-upload-form-details-header {
-  font-size: 20px;
+  font-size: 18px;
   color: #444;
   border-bottom: 1px solid rgb(211, 211, 211);
   padding-bottom: 2px;
+  padding-left: 2px;
 }
 
 .video-upload-form-input {
@@ -84,4 +88,8 @@
   border-radius: 3px;
   text-align: center;
   font-weight: 500;
+}
+
+.video-upload-form-submit:hover {
+  background-color: rgb(22, 114, 183);
 }

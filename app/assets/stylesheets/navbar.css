@@ -30,6 +30,10 @@
   margin-left: 4px; 
 }
 
+.navbar-right-links {
+  display: flex;
+}
+
 .navbar-btn {
   padding: 10px 16px;
   text-transform: uppercase;

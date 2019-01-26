@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import CardItem from './card_item.jsx';
 
 class Card extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       showMenu: false,
     };
@@ -28,8 +28,13 @@ class Card extends Component {
   render() {
     return(
       <div className="navbar-card">
-        <button className="navbar-icon" onClick={this.showMenu}>
-          {this.props.user.username.slice(0,1)} 
+        <button className={`navbar-icon ${this.props.icon === undefined ? "user-icon" : ""}`} onClick={this.showMenu}>
+          {this.props.icon !== undefined ? (
+              this.props.icon 
+            ) : (
+              this.props.user.username.slice(0,1)
+            )
+          } 
         </button>
 
       {
@@ -41,8 +46,21 @@ class Card extends Component {
                 this.dropdownMenu = element;
               }}
             >
-              <CardItem className="user-info-card" label={`${this.props.user.username}#${this.props.user.email}`}></CardItem>
-              <CardItem label={'Sign out'} action={this.props.logout} />
+              {this.props.user !== undefined ? 
+                (
+                  <div>
+                    <CardItem className="user-info-card" label={`${this.props.user.username}#${this.props.user.email}`}></CardItem>
+                    <div className="menu-items">
+                      <CardItem label={'Sign out'} action={this.props.action} icon={(<i className="fas fa-sign-out-alt"></i>)} />
+                    </div>
+                  </div>
+                ) : (
+                  <div className="menu-items">
+                    {this.props.items.map((item, idx) => 
+                      <CardItem key={idx} label={item.label} link={item.link} icon={item.icon} />
+                    )}
+                  </div>
+                )}
             </div>
           ) : (
             null
