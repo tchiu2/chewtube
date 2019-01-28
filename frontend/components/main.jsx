@@ -9,7 +9,7 @@ import {
 } from '../util/route_util';
 
 import NavBarContainer from './navbar/navbar_container';
-import VideoContainer from './videos/video_container';
+import VideoShowContainer from './videos/video_show_container';
 import VideoUploadContainer from './videos/video_upload_container';
 
 const Main = () => (
@@ -19,7 +19,7 @@ const Main = () => (
     </header>
     <Switch>
       <Route path="/upload" component={VideoUploadContainer} />
-      <Route path="/" component={VideoContainer} /> 
+      <Route path="/videos/:videoId" component={VideoShowContainer} />
     </Switch>
   </div>
 );

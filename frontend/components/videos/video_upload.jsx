@@ -66,7 +66,7 @@ class VideoUpload extends Component {
       formData.append('video[video]', this.state.videoFile);
     }
     
-    //this.props.upload(formData);
+    this.props.upload(formData);
   }
 
   render() {

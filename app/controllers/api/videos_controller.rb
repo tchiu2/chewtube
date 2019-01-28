@@ -3,7 +3,12 @@ class Api::VideosController < ApplicationController
   end
 
   def show
-    @video = Video.find(params[:id])
+    @video = Video.includes(:uploader).find(params[:id])
+    if @video
+      render :show
+    else
+      render json: ["Video not found"], status: 404
+    end
   end
 
   def create
