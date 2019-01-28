@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { formatThumbnailDate } from '../../util/date_util';
 
 const VideoIndexItem = ({ video, uploader }) => (
-  <div className="video-index-item">
-    <img src={video.thumbUrl} />
-    <div>{video.title}</div>
-    <div>{uploader.username}</div>
-    <div>{video.createdAt}</div>
-  </div>
+  <Link to={`/videos/${video.id}`} className="video-index-item">
+    <img className="index-item-thumbnail" src={video.thumbUrl} />
+    <div className="index-item-details">
+      <div className="index-item-title">{video.title}</div>
+      <div className="index-item-uploader">{uploader.username}</div>
+      <div className="index-item-date">{formatThumbnailDate(video.createdAt)}</div>
+    </div>
+  </Link>
 );
 
 export default VideoIndexItem;

@@ -19,7 +19,7 @@ const Main = () => (
       <NavBarContainer /> 
     </header>
     <Switch>
-      <Route path="/upload" component={VideoUploadContainer} />
+      <ProtectedRoute path="/upload" component={VideoUploadContainer} />
       <Route path="/videos/:videoId" component={VideoShowContainer} />
       <Route path="/" component={VideoIndexContainer} />
     </Switch>

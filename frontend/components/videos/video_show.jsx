@@ -12,7 +12,7 @@ class VideoShow extends Component {
   }
 
   render() {  
-    return this.props.video === undefined ? null : 
+    return (this.props.video === undefined || this.props.user === undefined) ? null : 
         (
           <div className="video-show-container">
             <Video src={this.props.video.videoUrl} />

@@ -14,6 +14,7 @@ class VideoIndex extends Component {
     const indexItems = this.props.videos.length > 0 ? this.props.videos.map((video, idx) => <VideoIndexItem key={idx} video={video} uploader={this.props.users[video.id]} />) : "";
     return (
       <div className="video-index">
+        <h1 className="shelf-title">Homepage</h1>
         <ul className="video-index-shelf">
           {indexItems} 
         </ul>

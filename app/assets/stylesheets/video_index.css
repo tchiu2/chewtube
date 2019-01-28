@@ -1,0 +1,51 @@
+.video-index {
+  width: 1285px;
+  margin: auto;
+}
+
+.shelf-title {
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 24px;
+}
+
+.video-index-shelf {
+  margin-top: 24px;
+  display: flex;
+}
+
+.video-index-item {
+  width: 210px;
+  margin-right: 4px;
+  margin-bottom: 24px;
+}
+
+.index-item-thumbnail {
+  object-fit: cover;
+  width: inherit;
+  height: 117.5px;
+}
+
+.index-item-details {
+  padding-right: 24px;
+  width: inherit;
+  color: rgb(96, 96, 96);
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.index-item-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin: 8px 0;
+  padding: inherit;
+  width: inherit; 
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
+  height: 32px;
+  line-height: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
