@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Video from './video';
 import VideoDetails from './video_details';
 
@@ -17,6 +18,7 @@ class VideoShow extends Component {
           <div className="video-show-container">
             <Video src={this.props.video.videoUrl} />
             <VideoDetails video={this.props.video} user={this.props.user} />
+            <Link to={{ pathname: `/videos/${this.props.video.id}/edit`, state: { video: this.props.video } }}>Edit video</Link>
           </div>
         )
   }

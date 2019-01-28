@@ -4,7 +4,7 @@ class Api::VideosController < ApplicationController
   end
 
   def show
-    @video = Video.includes(:uploader).find(params[:id])
+    @video = Video.includes(:uploader).find_by(id: params[:id])
     if @video
       render :show
     else
@@ -27,14 +27,27 @@ class Api::VideosController < ApplicationController
   end
 
   def update
+    @video = Video.find_by(id: params[:video][:id])
+    if @video.update(video_params)
+      render :show
+    else
+      render json: @video.errors.full_messages, status: 422
+    end
   end
 
   def destroy
+    @video = Video.includes(:uploader).find_by(id: params[:id])
+    if @video
+      @video.destroy
+      render :show
+    else
+      render json: ["Video not found"], status: 404
+    end
   end
 
   private
 
   def video_params
-    params.require(:video).permit(:title, :description, :uploader_id, :video, :thumbnail)
+    params.require(:video).permit(:title, :description, :uploader_id, :video, :thumbnail, :id)
   end
 end

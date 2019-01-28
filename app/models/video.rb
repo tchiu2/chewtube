@@ -1,5 +1,5 @@
 class Video < ApplicationRecord
-  validates :title, presence: true
+  validates :title, :description, presence: true
 
   belongs_to :uploader,
     primary_key: :id,

@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class VideoUpload extends Component {
   constructor(props) {
     super(props);
-    this.state = this.props.video;
+    this.state = { ...this.props.video, formSubmitted: false };
     this.readFile = this.readFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.generateThumbnail = this.generateThumbnail.bind(this);
@@ -66,6 +66,10 @@ class VideoUpload extends Component {
       formData.append('video[video]', this.state.videoFile);
     }
     
+    this.setState({
+      formSubmitted: true
+    });
+
     this.props.upload(formData);
   }
 
@@ -111,6 +115,7 @@ class VideoUpload extends Component {
 
                   <input
                     className="video-upload-form-input"
+                    required
                     type="text"
                     placeholder="Title" 
                     onChange={this.update('title')}
@@ -118,12 +123,17 @@ class VideoUpload extends Component {
 
                   <textarea
                     className="video-upload-form-description"
+                    required
                     placeholder="Description"
                     onChange={this.update('description')}
                   />
                 </div>
 
-                <button className="video-upload-form-submit">Upload</button>
+                <button 
+                  disabled={this.state.formSubmitted}
+                  className="video-upload-form-submit">
+                  {this.state.formSubmitted ? "Uploading..." : "Upload"}
+                </button>
             </>
             ) : ("")}
         </form>

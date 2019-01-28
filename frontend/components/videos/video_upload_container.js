@@ -13,8 +13,8 @@ const msp = ({ session: { currentUserId } }) => ({
   },
 });
 
-const mdp = dispatch => ({
-  upload: video => dispatch(createVideo(video)),
+const mdp = (dispatch, ownProps) => ({
+  upload: video => dispatch(createVideo(video, ownProps.history)),
 });
 
 export default connect(msp, mdp)(VideoUpload);

@@ -3,6 +3,7 @@ import * as APIUtil from '../util/video_api_util';
 export const RECEIVE_VIDEO = 'RECEIVE_VIDEO';
 export const RECEIVE_VIDEOS = 'RECEIVE_VIDEOS';
 export const REMOVE_VIDEO = 'REMOVE_VIDEO';
+export const RECEIVE_VIDEO_ERRORS = 'RECEIVE_VIDEO_ERRORS';
 
 const receiveVideos = payload => ({
   type: RECEIVE_VIDEOS,
@@ -19,32 +20,48 @@ const removeVideo = id => ({
   id,
 });
 
+const receiveVideoErrors = errors => ({
+  type: RECEIVE_VIDEO_ERRORS,
+  errors,
+});
+
 export const fetchVideos = () => dispatch => (
-  APIUtil.fetchVideos().then(payload => (
-    dispatch(receiveVideos(payload))
-  ))
+  APIUtil.fetchVideos().then(
+    payload => dispatch(receiveVideos(payload)),
+    errors => dispatch(receiveVideoErrors(errors))
+  )
 );
 
 export const fetchVideo = id => dispatch => (
-  APIUtil.fetchVideo(id).then(payload => (
-    dispatch(receiveVideo(payload))
-  ))
+  APIUtil.fetchVideo(id).then(
+    payload => dispatch(receiveVideo(payload)),
+    errors => dispatch(receiveVideoErrors(errors.responseJSON))   
+  )
 );
 
-export const createVideo = video => dispatch => (
-  APIUtil.createVideo(video).then(payload => (
-    dispatch(receiveVideo(payload))
-  ))
+export const createVideo = (video, history) => dispatch => (
+  APIUtil.createVideo(video).then(
+    payload => { 
+      dispatch(receiveVideo(payload));
+      history.push(`/videos/${payload.video.id}`);
+    },
+    errors => dispatch(receiveVideoErrors(errors.responseJSON))
+  )
 );
 
-export const updateVideo = video => dispatch => (
-  APIUtil.updateVideo(video).then(payload => (
-    dispatch(receiveVideo(payload))
-  ))
+export const updateVideo = (video, history) => dispatch => (
+  APIUtil.updateVideo(video).then(
+    payload => {
+      dispatch(receiveVideo(payload));
+      history.push(`/videos/${payload.video.id}`);
+    },
+    errors => dispatch(receiveVideoErrors(errors.responseJSON))
+  )
 );
 
 export const deleteVideo = id => dispatch => (
-  APIUtil.deleteVideo(id).then(video => (
-    dispatch(removeVideo(video.id))
-  ))
+  APIUtil.deleteVideo(id).then(
+    video => dispatch(removeVideo(video.id)),
+    errors => dispatch(receiveVideoErrors(errors.responseJSON))
+  )
 );

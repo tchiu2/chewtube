@@ -93,3 +93,7 @@
 .video-upload-form-submit:hover {
   background-color: rgb(22, 114, 183);
 }
+
+.video-upload-form-submit:disabled {
+  background-color: rgba(22, 122, 198, 0.5);
+}
