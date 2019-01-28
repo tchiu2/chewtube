@@ -1,5 +1,6 @@
 class Api::VideosController < ApplicationController
   def index
+    @videos = Video.includes(:uploader).all
   end
 
   def show

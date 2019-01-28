@@ -4,9 +4,9 @@ export const RECEIVE_VIDEO = 'RECEIVE_VIDEO';
 export const RECEIVE_VIDEOS = 'RECEIVE_VIDEOS';
 export const REMOVE_VIDEO = 'REMOVE_VIDEO';
 
-const receiveVideos = videos => ({
+const receiveVideos = payload => ({
   type: RECEIVE_VIDEOS,
-  videos,
+  payload,
 });
 
 const receiveVideo = payload => ({
@@ -20,8 +20,8 @@ const removeVideo = id => ({
 });
 
 export const fetchVideos = () => dispatch => (
-  APIUtil.fetchVideos().then(videos => (
-    dispatch(receiveVideos(videos))
+  APIUtil.fetchVideos().then(payload => (
+    dispatch(receiveVideos(payload))
   ))
 );
 

@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Video.destroy_all
 
 [
   { email: "demouser@gmail.com", username: "demouser", password: "password" }
