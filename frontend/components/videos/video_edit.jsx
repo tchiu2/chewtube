@@ -27,6 +27,16 @@ class VideoEdit extends Component {
     this.props.updateVideo(formData, this.props.history);
   }
 
+  handleDelete(e) {
+    e.preventDefault();
+
+    this.setState({
+      formSubmitted: true
+    });
+
+    this.props.deleteVideo(this.props.match.params.videoId, this.props.history);
+  }
+
   render() {
     return (
       <div className="video-upload-form-container">
@@ -54,6 +64,13 @@ class VideoEdit extends Component {
             disabled={this.state.formSubmitted}
             className="video-upload-form-submit">
             {this.state.formSubmitted ? "Updating..." : "Update"}
+          </button>
+
+          <button 
+            disabled={this.state.formSubmitted}
+            onClick={this.handleDelete.bind(this)}
+            className="video-upload-form-submit">
+            {this.state.formSubmitted ? "Deleting..." : "Delete"}
           </button>
         </form>
       </div>

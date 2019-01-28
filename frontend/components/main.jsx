@@ -21,7 +21,7 @@ const Main = () => (
     </header>
     <Switch>
       <ProtectedRoute path="/upload" component={VideoUploadContainer} />
-      <Route path="/videos/:videoId/edit" component={VideoEditContainer} />
+      <ProtectedRoute path="/videos/:videoId/edit" component={VideoEditContainer} />
       <Route path="/videos/:videoId" component={VideoShowContainer} />
       <Route path="/" component={VideoIndexContainer} />
     </Switch>
