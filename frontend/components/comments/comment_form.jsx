@@ -1,6 +1,7 @@
 import React, { Component } from 'react'; 
 import { connect } from 'react-redux';
 import { createComment } from '../../actions/comment_actions';
+import UserIcon from '../icons/user_icon';
 
 const msp = ({ entities: { users }, session }, { video }) => ({
   video,
@@ -17,15 +18,18 @@ class CommentForm extends Component {
     super(props);
     this.state = {
       body: '',
+      hideButtons: true
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.hideFormButtons = this.hideFormButtons.bind(this);
+    this.showFormButtons = this.showFormButtons.bind(this);
   }
 
   update(field) {
     return (e) => {
       this.setState({ 
         [field]: e.target.value,
-        submittable: (this.state[field].length > 0 ? true : false),
+        submittable: (e.target.value.length > 0 ? true : false),
       });
     };
   }
@@ -38,30 +42,56 @@ class CommentForm extends Component {
     this.props.createComment(formData);
   }
 
+  showFormButtons(e) {
+    e.preventDefault();
+    this.setState({
+      hideButtons: false
+    });
+  }
+
+  hideFormButtons(e) {
+    e.preventDefault();
+    this.setState({
+      hideButtons: true
+    });
+  }
+
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <button className={`comment-icon ${this.props.icon === undefined ? "user-icon" : ""}`}
-          onClick={e => alert('clicked user icon')}>
-          {this.props.icon !== undefined ? (
-              this.props.icon 
-            ) : (
-              this.props.users[this.props.currentUserId].username.slice(0,1)
-            )
-          } 
-        </button>
+      this.props.currentUserId === null ? null : (
+        <form className="comment-form" onSubmit={this.handleSubmit}>
+          <UserIcon 
+            user={this.props.users[this.props.currentUserId]} 
+            className="comment-form-icon"
+          />
 
-        <textarea
-          onChange={this.update('body')}
-          value={this.state.body}
-          placeholder="Add a public comment..."
-        />
+          <div className="comment-form-input-container">
+            <textarea
+              className="comment-form-input"
+              onChange={this.update('body')}
+              onClick={this.showFormButtons}
+              value={this.state.body}
+              placeholder="Add a public comment..."
+            />
 
-        <button
-          disabled={!this.state.submittable}>
-          Comment
-        </button>
-      </form>
+            {this.state.hideButtons ? null : (
+              <div className="comment-form-buttons">
+                <button
+                  className="comment-form-cancel"
+                  onClick={this.hideFormButtons}>
+                  Cancel
+                </button>
+                
+                <button
+                  className="comment-form-submit"
+                  disabled={!this.state.submittable}>
+                  Comment
+                </button>
+              </div>
+            )}
+          </div>
+        </form>
+      )
     );
   }
 }

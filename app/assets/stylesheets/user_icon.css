@@ -1,0 +1,12 @@
+.user-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 50%;
+  background-color: darkgreen;
+  color: white;
+  text-transform: uppercase;
+  margin-right: 16px;
+  font-size: 20px;
+}

@@ -1,0 +1,37 @@
+.comment-container {
+  margin-bottom: 16px;
+  display: flex;
+  font-size: 13px;
+}
+
+.comment-heading {
+  display: flex;
+  margin-bottom: 2px;
+}
+
+.comment-username {
+  margin-right: 4px;
+}
+
+.comment-uploader {
+  background-color: rgb(136, 136, 136);
+  border-radius: 12px;
+  color: white;
+  font-weight: 500;
+  padding: 0 6px;
+  margin-bottom: 2px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.comment-date {
+  color: rgb(96, 96, 96);
+}
+
+.comment-body {
+  font-size: 14px;
+  color: rgb(17, 17, 17);
+  line-height: 20px;
+}

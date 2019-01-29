@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CardItem from './card_item.jsx';
+import UserIcon from '../icons/user_icon';
 
 class Card extends Component {
   constructor(props) {
@@ -32,14 +33,12 @@ class Card extends Component {
   render() {
     return(
       <div className="navbar-card">
-        <button className={`navbar-icon ${this.props.icon === undefined ? "user-icon" : ""}`} onClick={this.showMenu}>
-          {this.props.icon !== undefined ? (
-              this.props.icon 
-            ) : (
-              this.props.user.username.slice(0,1)
-            )
-          } 
-        </button>
+        <UserIcon 
+          user={this.props.user}
+          className="navbar-icon"
+          icon={this.props.icon}
+          onClick={this.showMenu}
+        />
 
       {
         this.state.showMenu

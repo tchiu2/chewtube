@@ -1,0 +1,16 @@
+.comment-form {
+  margin-top: 24px;
+  margin-bottom: 32px;
+  display: flex;
+}
+
+.comment-form-input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-form-input {
+  resize: none;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 4px;
+}
