@@ -9,7 +9,7 @@ export default (state = {}, action) => {
     case RECEIVE_VIDEOS:
       return { ...action.payload.videos };
     case RECEIVE_VIDEO:
-      return { ...state, [action.payload.video.id]: action.payload.video };
+      return { ...state, ...action.payload.commentUsers, [action.payload.video.id]: action.payload.video };
     case REMOVE_VIDEO:
       const newState = { ...state };
       delete(newState[action.id]);

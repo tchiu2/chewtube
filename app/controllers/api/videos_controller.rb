@@ -41,7 +41,7 @@ class Api::VideosController < ApplicationController
     @video = Video.find_by(id: params[:id])
     if @video
       @video.destroy
-      render :show
+      render json: { id: @video.id } 
     else
       render json: ["Video not found"], status: 404
     end

@@ -61,8 +61,8 @@ export const updateVideo = (video, history) => dispatch => (
 
 export const deleteVideo = (id, history) => dispatch => (
   APIUtil.deleteVideo(id).then(
-    video => {
-      dispatch(removeVideo(video.id));
+    id => {
+      dispatch(removeVideo(id));
       history.push("/");
     },
     errors => dispatch(receiveVideoErrors(errors.responseJSON))

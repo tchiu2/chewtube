@@ -1,4 +1,4 @@
-export const formatThumbnailDate = createdDate => {
+export const formatDate = createdDate => {
   const minutes = Math.floor((Date.now() - new Date(createdDate)) / (1000 * 60));
   if (minutes < 60) {
     return `${minutes} minute${minutes === 1 ? "" : "s"} ago`;
