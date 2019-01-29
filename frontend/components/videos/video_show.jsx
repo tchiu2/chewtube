@@ -18,7 +18,17 @@ class VideoShow extends Component {
           <div className="video-show-container">
             <Video src={this.props.video.videoUrl} />
             <VideoDetails video={this.props.video} user={this.props.user} />
-            <Link to={{ pathname: `/videos/${this.props.video.id}/edit`, state: { video: this.props.video } }}>Edit video</Link>
+          {this.props.video.uploaderId === this.props.session.currentUserId ? 
+            ( 
+              <Link 
+                to={
+                    { pathname: `/videos/${this.props.video.id}/edit`, 
+                    state: { video: this.props.video } }
+                   }>
+                Edit video
+              </Link>
+            ) : ( null )
+          }
           </div>
         )
   }
