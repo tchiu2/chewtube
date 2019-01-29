@@ -97,3 +97,9 @@
 .video-upload-form-submit:disabled {
   background-color: rgba(22, 122, 198, 0.5);
 }
+
+.video-edit-buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+}

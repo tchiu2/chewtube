@@ -60,18 +60,20 @@ class VideoEdit extends Component {
             />
           </div>
 
-          <button 
-            disabled={this.state.formSubmitted}
-            className="video-upload-form-submit">
-            {this.state.formSubmitted ? "Updating..." : "Update"}
-          </button>
+          <div className="video-edit-buttons">
+            <button 
+              disabled={this.state.formSubmitted}
+              className="video-upload-form-submit">
+              Update
+            </button>
 
-          <button 
-            disabled={this.state.formSubmitted}
-            onClick={this.handleDelete.bind(this)}
-            className="video-upload-form-submit">
-            {this.state.formSubmitted ? "Deleting..." : "Delete"}
-          </button>
+            <button 
+              disabled={this.state.formSubmitted}
+              onClick={this.handleDelete.bind(this)}
+              className="video-upload-form-submit">
+              Delete
+            </button>
+          </div>
         </form>
       </div>
     );

@@ -11,6 +11,10 @@ class Card extends Component {
     this.closeMenu = this.closeMenu.bind(this);
   }
 
+  componentWillUnmount() {
+    document.removeEventListener('click', this.closeMenu);
+  }
+
   showMenu(e) {
     e.preventDefault();
 
