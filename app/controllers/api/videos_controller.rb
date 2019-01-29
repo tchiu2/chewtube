@@ -1,4 +1,6 @@
 class Api::VideosController < ApplicationController
+  before_action :require_logged_in, only: [:create, :update, :destroy]
+
   def index
     @videos = Video.includes(:uploader).limit(5)
   end
@@ -36,7 +38,7 @@ class Api::VideosController < ApplicationController
   end
 
   def destroy
-    @video = Video.includes(:uploader).find_by(id: params[:id])
+    @video = Video.find_by(id: params[:id])
     if @video
       @video.destroy
       render :show
