@@ -2,15 +2,41 @@
   margin-top: 24px;
   margin-bottom: 32px;
   display: flex;
+  font-size: 14px;
 }
 
 .comment-form-input-container {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .comment-form-input {
   resize: none;
   border-bottom: 1px solid #e5e5e5;
   padding-bottom: 4px;
+  margin-bottom: 8px;
+}
+
+.comment-form-buttons {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: row;
+}
+
+.comment-form-buttons button {
+  padding: 10px 16px;
+  text-transform: uppercase;
+  margin-left: 8px;
+  text-align: center;
+  align-items: center;
+}
+
+.comment-form-cancel {
+  color: #717171;
+}
+
+.comment-form-submit {
+  background-color: #075ed3;
+  color: white;
 }

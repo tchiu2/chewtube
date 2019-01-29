@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createComment } from '../../actions/comment_actions';
 import UserIcon from '../icons/user_icon';
+import Textarea from 'react-textarea-autosize';
 
 const msp = ({ entities: { users }, session }, { video }) => ({
   video,
@@ -66,8 +67,9 @@ class CommentForm extends Component {
           />
 
           <div className="comment-form-input-container">
-            <textarea
+            <Textarea
               className="comment-form-input"
+              maxRows={5}
               onChange={this.update('body')}
               onClick={this.showFormButtons}
               value={this.state.body}

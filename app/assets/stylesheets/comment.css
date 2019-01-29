@@ -11,13 +11,14 @@
 
 .comment-username {
   margin-right: 4px;
+  font-weight: 500;
+  color: rgb(10, 10, 10);
 }
 
 .comment-uploader {
   background-color: rgb(136, 136, 136);
   border-radius: 12px;
   color: white;
-  font-weight: 500;
   padding: 0 6px;
   margin-bottom: 2px;
   height: 20px;
