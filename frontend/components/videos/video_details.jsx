@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class VideoDetails extends Component {
   constructor(props) {
@@ -16,6 +17,18 @@ class VideoDetails extends Component {
           <div className="video-details-upload-info">
             <div className="video-details-uploader">{this.props.user.username}</div>
             <div className="video-details-publish-date">Published on {this.props.video.createdAt.split('T')[0]}</div>
+            {this.props.video.uploaderId === this.props.session.currentUserId ? 
+              ( 
+                <Link 
+                  className="video-show-edit-btn"
+                  to={
+                      { pathname: `/videos/${this.props.video.id}/edit`, 
+                      state: { video: this.props.video } }
+                     }>
+                  Edit video
+                </Link>
+              ) : null 
+            }
           </div>
           <div className="video-details-description">{this.props.video.description}</div>
         </div>

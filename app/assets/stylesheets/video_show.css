@@ -19,20 +19,21 @@
   padding-top: 20px;
 }
 
-.video-details-primary-info {
-  padding-bottom: 8px;
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.video-details-secondary-info {
+.video-show-info-container {
   padding-bottom: 16px;
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 24px;
 }
 
+.video-details-primary-info {
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
 .video-details-upload-info {
   padding-top: 16px;
   margin-bottom: 12px;
+  position: relative;
 }
 
 .video-details-title {
@@ -44,4 +45,20 @@
   color: #606060;
   font-size: 16px;
   line-height: 40px;
+}
+
+.video-show-edit-btn {
+  padding: 10px 16px;
+  text-transform: uppercase;
+  margin-left: 8px;
+  text-align: center;
+  align-items: center;
+  font-weight: 500;
+  border-radius: 2px;
+  position: absolute;
+  top: 16px;
+  right: 0px;
+  background-color: #075ed3;
+  color: white;
+  transition: 0.28s;
 }

@@ -53,6 +53,7 @@ class CommentForm extends Component {
   hideFormButtons(e) {
     e.preventDefault();
     this.setState({
+      body: '',
       hideButtons: true
     });
   }

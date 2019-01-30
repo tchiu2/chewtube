@@ -14,10 +14,6 @@
  *= require_self
  */
 
-html, body, main, main > div {
-  height: 100%;
-}
-
 body {
 	font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
 }

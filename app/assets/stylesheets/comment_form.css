@@ -8,7 +8,7 @@
 .comment-form-input-container {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 94%;
 }
 
 .comment-form-input {
@@ -16,6 +16,10 @@
   border-bottom: 1px solid #e5e5e5;
   padding-bottom: 4px;
   margin-bottom: 8px;
+}
+
+.comment-form-input:focus {
+  border-bottom: 2px solid rgba(17, 17, 17, 0.6);
 }
 
 .comment-form-buttons {
@@ -30,6 +34,8 @@
   margin-left: 8px;
   text-align: center;
   align-items: center;
+  font-weight: 500;
+  border-radius: 2px;
 }
 
 .comment-form-cancel {
@@ -39,4 +45,9 @@
 .comment-form-submit {
   background-color: #075ed3;
   color: white;
+  transition: 0.28s;
+}
+
+.comment-form-submit:disabled {
+  background-color: #d7e9fb;
 }
