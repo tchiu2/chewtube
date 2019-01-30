@@ -8,7 +8,8 @@ class User < ApplicationRecord
     foreign_key: :uploader_id,
     class_name: :Video
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   attr_reader :password
 
