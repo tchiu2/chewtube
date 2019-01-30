@@ -29,9 +29,13 @@ class Comment extends Component {
             </div>
           </div>
         </div>
-        <div className="comment-right-items">
-          <button className="comment-delete-btn" onClick={this.handleDelete}>delete</button>
-        </div>
+        {currentUserId !== comment.userId ? null : 
+          (
+            <div className="comment-right-items">
+              <button className="comment-delete-btn" onClick={this.handleDelete}>delete</button>
+            </div>
+          )
+        }
       </div>
     );
   }
