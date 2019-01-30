@@ -21,6 +21,6 @@ export const createComment = comment => dispatch => (
 
 export const deleteComment = id => dispatch => (
   APIUtil.deleteComment(id).then(
-    id => dispatch(removeVideo(id))
+    payload => dispatch(removeComment(payload.id))
   )
 );

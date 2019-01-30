@@ -2,6 +2,11 @@
   margin-bottom: 16px;
   display: flex;
   font-size: 13px;
+  justify-content: space-between;
+}
+
+.comment-left-items {
+  display: flex;
 }
 
 .comment-heading {
@@ -35,4 +40,16 @@
   font-size: 14px;
   color: rgb(17, 17, 17);
   line-height: 20px;
+}
+
+.comment-delete-btn {
+  display: none;
+  text-transform: uppercase;
+  align-self: center;
+  justify-self: flex-end;
+  color: rgb(6, 95, 212);
+}
+
+.comment-container:hover .comment-delete-btn {
+  display: inline-block;
 }

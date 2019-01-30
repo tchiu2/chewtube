@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { deleteComment } from '../../actions/comment_actions';
 import Comment from './comment';
 import CommentForm from './comment_form';
 
@@ -10,7 +11,11 @@ const msp = ({ entities: { users, comments }, session }, { video }) => ({
   session,
 });
 
-const CommentsSection = ({ video, users, comments, session: { currentUserId } }) => {
+const mdp = {
+  deleteComment,
+};
+
+const CommentsSection = ({ video, users, comments, session: { currentUserId }, deleteComment }) => {
   return (
     <div className="comments-section"> 
       <CommentForm video={video} />
@@ -21,8 +26,9 @@ const CommentsSection = ({ video, users, comments, session: { currentUserId } })
           uploaderId={video.uploaderId}
           user={users[comment.userId]}
           currentUserId={currentUserId}
+          deleteComment={deleteComment}
         />) : null}
     </div>
   );
 };
-export default connect(msp)(CommentsSection);
+export default connect(msp, mdp)(CommentsSection);

@@ -4,6 +4,7 @@
   margin-left: 24px;
   padding-top: 24px;
   width: 75%;
+  height: 100%;
 }
 
 #video-content {
@@ -53,6 +54,7 @@
   margin-left: 8px;
   text-align: center;
   align-items: center;
+  font-size: 14px;
   font-weight: 500;
   border-radius: 2px;
   position: absolute;

@@ -19,7 +19,7 @@ class Api::CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     if @comment
       @comment.destroy
-      render :show
+      render json: { id: @comment.id }
     else
       render json: ["Comment not found"], status: 404
     end

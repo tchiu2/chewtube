@@ -41,6 +41,9 @@ class CommentForm extends Component {
     formData.append('comment[video_id]', this.props.video.id);
     formData.append('comment[body]', this.state.body);
     this.props.createComment(formData);
+    this.setState({
+      body: '',
+    });
   }
 
   showFormButtons(e) {
