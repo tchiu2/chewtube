@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 
-import { signup, login, logout } from './actions/session_actions';
+import { like, unlike } from './actions/like_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root')
@@ -22,9 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		store = configureStore();
 	}
 
-  window.signup = signup;
-  window.login = login;
-  window.logout = logout;
+  window.like = like;
+  window.unlike = unlike;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 

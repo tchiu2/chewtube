@@ -7,9 +7,13 @@ export default (state = {}, action) => {
     case RECEIVE_CURRENT_USER:
       return { ...state, [action.currentUser.id]: action.currentUser };
     case RECEIVE_VIDEOS:
-      return { ...state, ...action.payload.users };
+      return { ...action.payload.users, ...state };
     case RECEIVE_VIDEO:
-      return { ...state, ...action.payload.commentUsers, [action.payload.uploader.id]: action.payload.uploader };
+      return { 
+        ...state,
+        ...action.payload.commentUsers,
+        [action.payload.uploader.id]: action.payload.uploader, 
+      };
     default:
       return state;
   }

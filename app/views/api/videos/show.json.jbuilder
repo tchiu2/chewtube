@@ -4,6 +4,8 @@ json.video do
   json.uploaderId @video.uploader_id
   json.createdAt @video.created_at
   json.videoUrl @video.video.service_url
+  json.numLikes @video.likes.where(dislike: false).length
+  json.numDislikes @video.likes.where(dislike: true).length
 end
 
 json.uploader do
@@ -19,7 +21,15 @@ end
 
   json.commentUsers do
     json.set! comment.user.id do
-      json.extract! comment.user, :id, :username
+      json.partial! 'api/users/user', user: comment.user
+    end
+  end
+end
+
+@video.likes.where(user_id: current_user.id).each do |like|
+  json.likes do
+    json.set! like.id do
+      json.partial! 'api/likes/like', like: like
     end
   end
 end

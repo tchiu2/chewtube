@@ -9,7 +9,7 @@ class Api::LikesController < ApplicationController
     @like.dislike = params[:like][:dislike]
 
     if @like.save
-      render json: ["#{@like.dislike ? "disliked" : "liked"} #{@like.likeable_type} #{@like.likeable_id}"]
+      render :show
     end
   end
 
@@ -22,7 +22,7 @@ class Api::LikesController < ApplicationController
 
     if @like
       @like.destroy
-      render json: ["removed like for #{@like.likeable_type} #{@like.likeable_id}"]
+      render :show
     else
       render json: ["Like not found"], status: 404
     end

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import LikeButtons from '../likes/like_buttons';
 
 class VideoDetails extends Component {
   constructor(props) {
@@ -12,6 +13,13 @@ class VideoDetails extends Component {
         <div className="video-details-primary-info">
           <h1 className="video-details-title">{this.props.video.title}</h1>
           <div className="video-details-views">301 views</div>
+          <LikeButtons 
+            session={this.props.session}
+            type="Video"
+            id={this.props.video.id}
+            numLikes={this.props.video.numLikes}
+            numDislikes={this.props.video.numDislikes}
+          />
         </div>
         <div className = "video-details-secondary-info">
           <div className="video-details-upload-info">

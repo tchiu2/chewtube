@@ -13,7 +13,7 @@ class Video extends Component {
   render() {
     return (
       <div className="video-content-container">
-        <video controls 
+        <video controls autoPlay
             onClick={this.togglePlay}
             ref={node => this.player = node}
             id="video-content"
