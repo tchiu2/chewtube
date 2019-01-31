@@ -31,6 +31,12 @@
   border-bottom: 1px solid #e5e5e5;
 }
 
+.video-details-views-likes-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .video-details-upload-info {
   padding-top: 16px;
   margin-bottom: 12px;

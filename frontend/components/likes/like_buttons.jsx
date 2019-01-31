@@ -36,13 +36,16 @@ class LikeButtons extends Component {
       e.preventDefault();
 
       const like = {
-        user_id: this.props.session.currentUserId,
+        user_id: this.props.currentUserId,
         dislike: type === 'dislike',
         likeable_type: this.props.type,
         likeable_id: this.props.id,
       };
 
-      if (this.props.likes.length > 0) {
+      const likedItems = this.props.likes.map(like => `${like.likeableType}${like.likeableId}`);
+      const currentItemId = `${this.props.type}${this.props.id}`;
+
+      if (likedItems.includes(currentItemId)) {
         if (this.props.likes[0].dislike === like.dislike) {
           if (type === 'dislike') {
             this.setState({ numDislikes: --this.state.numDislikes });
@@ -85,10 +88,22 @@ class LikeButtons extends Component {
   render () {
     return (
       <div className="likes-container">
-        <button onClick={this.handleClick('like')} className="like-btn">Up</button>
-        <div className="like-count num-likes">{this.state.numLikes}</div>
-        <button onClick={this.handleClick('dislike')} className="like-btn">Down</button>
-        <div className="like-count num-dislikes">{this.state.numDislikes}</div>
+        <div className={`like-btn-container ${this.props.likes.filter(like => like.likeableType === this.props.type && like.likeableId === this.props.id && like.dislike === false).length > 0 ? "liked" : ""}`}>
+          <button 
+            onClick={this.handleClick('like')} 
+            className="like-btn">
+            <i className="fas fa-thumbs-up"></i>
+          </button>
+          <div className="like-count num-likes">{this.state.numLikes}</div>
+        </div>
+        <div className={`like-btn-container ${this.props.likes.filter(like => like.likeableType === this.props.type && like.likeableId === this.props.id && like.dislike === true).length > 0 ? "liked" : ""}`}>
+          <button 
+            onClick={this.handleClick('dislike')} 
+            className="like-btn">
+            <i className="fas fa-thumbs-down"></i>
+          </button>
+          <div className="like-count num-dislikes">{this.state.numDislikes}</div>
+        </div>
       </div>
     );
   }

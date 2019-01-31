@@ -12,14 +12,16 @@ class VideoDetails extends Component {
       <div className="video-details-container">
         <div className="video-details-primary-info">
           <h1 className="video-details-title">{this.props.video.title}</h1>
-          <div className="video-details-views">301 views</div>
-          <LikeButtons 
-            session={this.props.session}
-            type="Video"
-            id={this.props.video.id}
-            numLikes={this.props.video.numLikes}
-            numDislikes={this.props.video.numDislikes}
-          />
+          <div className="video-details-views-likes-container">
+            <div className="video-details-views">301 views</div>
+            <LikeButtons 
+              currentUserId={this.props.session.currentUserId}
+              type="Video"
+              id={this.props.video.id}
+              numLikes={this.props.video.numLikes}
+              numDislikes={this.props.video.numDislikes}
+            />
+          </div>
         </div>
         <div className = "video-details-secondary-info">
           <div className="video-details-upload-info">
