@@ -6,7 +6,7 @@ class Api::VideosController < ApplicationController
   end
 
   def show
-    @video = Video.includes(:uploader).find_by(id: params[:id])
+    @video = Video.includes(:uploader, :likes).find_by(id: params[:id])
     if @video
       render :show
     else

@@ -18,9 +18,9 @@ class Comment extends Component {
   const { comment, user, currentUserId, uploaderId } = this.props;
     return (
       <div className="comment-container">
+      <UserIcon user={user} className="comment-icon" />
         <div className="comment-main-content">
           <div className="comment-left-items">
-            <UserIcon user={user} className="comment-icon" />
             <div className="comment-content">
               <div className="comment-heading">
                 <div className={`comment-username ${uploaderId === user.id ? "comment-uploader" : ""}`}>{user.username}</div>
@@ -31,6 +31,15 @@ class Comment extends Component {
               </div>
             </div>
           </div>
+          <LikeButtons
+            currentUserId={this.props.currentUserId}
+            type="Comment"
+            id={comment.id}
+            numLikes={comment.numLikes}
+            numDislikes={comment.numDislikes}
+            className="comment-likes"
+          />
+        </div>
           {currentUserId !== comment.userId ? null : 
             (
               <div className="comment-right-items">
@@ -38,14 +47,6 @@ class Comment extends Component {
               </div>
             )
           }
-        </div>
-        <LikeButtons
-          currentUserId={this.props.currentUserId}
-          type="Comment"
-          id={comment.id}
-          numLikes={comment.numLikes}
-          numDislikes={comment.numDislikes}
-        />
       </div>
     );
   }

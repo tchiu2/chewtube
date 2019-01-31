@@ -12,7 +12,7 @@ json.uploader do
   json.partial! 'api/users/user', user: @video.uploader
 end
 
-@video.comments.includes(:user).each do |comment|
+@video.comments.includes(:user, :likes).each do |comment|
   json.comments do
     json.set! comment.id do
       json.partial! 'api/comments/comment', comment: comment
@@ -24,12 +24,24 @@ end
       json.partial! 'api/users/user', user: comment.user
     end
   end
+
+  if current_user
+    comment.likes.where(user_id: current_user.id).each do |like|
+      json.commentLikes do
+        json.set! like.id do
+          json.partial! 'api/likes/like', like: like
+        end
+      end
+    end
+  end
 end
 
-@video.likes.where(user_id: current_user.id).each do |like|
-  json.likes do
-    json.set! like.id do
-      json.partial! 'api/likes/like', like: like
+if current_user
+  @video.likes.where(user_id: current_user.id).each do |like|
+    json.likes do
+      json.set! like.id do
+        json.partial! 'api/likes/like', like: like
+      end
     end
   end
 end

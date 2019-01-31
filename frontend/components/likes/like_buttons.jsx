@@ -35,6 +35,10 @@ class LikeButtons extends Component {
     return (e) => {
       e.preventDefault();
 
+      if (this.props.currentUserId === null) {
+        return alert("Please log in to perform this action");
+      }
+
       const like = {
         user_id: this.props.currentUserId,
         dislike: type === 'dislike',
@@ -46,7 +50,10 @@ class LikeButtons extends Component {
       const currentItemId = `${this.props.type}${this.props.id}`;
 
       if (likedItems.includes(currentItemId)) {
-        if (this.props.likes[0].dislike === like.dislike) {
+        if (this.props.likes.filter(like => 
+            like.likeableType === this.props.type 
+            && like.likeableId === this.props.id 
+            && like.dislike === (type === 'dislike')).length > 0) { 
           if (type === 'dislike') {
             this.setState({ numDislikes: --this.state.numDislikes });
           } else {
@@ -87,7 +94,7 @@ class LikeButtons extends Component {
 
   render () {
     return (
-      <div className="likes-container">
+      <div className={`likes-container ${this.props.className ? this.props.className : ""}`}>
         <div className={`like-btn-container ${this.props.likes.filter(like => like.likeableType === this.props.type && like.likeableId === this.props.id && like.dislike === false).length > 0 ? "liked" : ""}`}>
           <button 
             onClick={this.handleClick('like')} 

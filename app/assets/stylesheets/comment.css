@@ -2,11 +2,22 @@
   margin-bottom: 16px;
   display: flex;
   font-size: 13px;
+}
+
+.comment-main-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
 .comment-left-items {
   display: flex;
+}
+
+.comment-right-items {
+  margin-left: auto;
+  align-self: center;
 }
 
 .comment-heading {

@@ -1,4 +1,6 @@
 class Api::LikesController < ApplicationController
+  before_action :require_logged_in, only: [:create, :destroy]
+
   def create
     @like = Like.find_or_initialize_by(
       user_id: params[:like][:user_id],
