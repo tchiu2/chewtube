@@ -2,7 +2,7 @@ class Api::VideosController < ApplicationController
   before_action :require_logged_in, only: [:create, :update, :destroy]
 
   def index
-    @videos = Video.includes(:uploader).limit(5)
+    @videos = Video.includes(:uploader).limit(5).order('id desc')
   end
 
   def show
