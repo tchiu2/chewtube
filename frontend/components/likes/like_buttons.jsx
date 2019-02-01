@@ -21,6 +21,10 @@ class LikeButtons extends Component {
       numDislikes: this.props.numDislikes,
     }
   }
+  
+  componentDidMount() {
+    this.props.type === 'Video' ?  this.calculateBar() : null;
+  }
 
   componentDidUpdate(prevProps) {
     if (this.props.numLikes !== prevProps.numLikes || this.props.numDislikes !== prevProps.numDislikes) {
@@ -29,6 +33,7 @@ class LikeButtons extends Component {
         numDislikes: this.props.numDislikes,
       });
     }
+    this.props.type === 'Video' ?  this.calculateBar() : null;
   }
 
   handleClick(type) {
@@ -89,28 +94,47 @@ class LikeButtons extends Component {
 
         this.props.like({ like });
       }
+      this.calculateBar();
     }
   }
 
-  render () {
+	calculateBar() {
+		let total = this.state.numLikes + this.state.numDislikes;
+
+		let percentageLikes = total === 0 ? 50 : (this.state.numLikes/total) * 100;
+		let percentageDislikes = total === 0 ? 50 : (this.state.numDislikes/total) * 100;
+
+		document.getElementById('likes').style.width=percentageLikes.toString()+"%";
+		document.getElementById('dislikes').style.width=percentageDislikes.toString()+"%";
+	}
+
+  render() {
     return (
       <div className={`likes-container ${this.props.className ? this.props.className : ""}`}>
-        <div className={`like-btn-container ${this.props.likes.filter(like => like.likeableType === this.props.type && like.likeableId === this.props.id && like.dislike === false).length > 0 ? "liked" : ""}`}>
-          <button 
-            onClick={this.handleClick('like')} 
-            className="like-btn">
-            <i className="fas fa-thumbs-up"></i>
-          </button>
-          <div className="like-count num-likes">{this.state.numLikes}</div>
+        <div className="like-btns">
+          <div className={`like-btn-container ${this.props.likes.filter(like => like.likeableType === this.props.type && like.likeableId === this.props.id && like.dislike === false).length > 0 ? "liked" : ""}`}>
+            <button 
+              onClick={this.handleClick('like')} 
+              className="like-btn">
+              <i className="fas fa-thumbs-up"></i>
+            </button>
+            <div className="like-count num-likes">{this.state.numLikes}</div>
+          </div>
+          <div className={`like-btn-container ${this.props.likes.filter(like => like.likeableType === this.props.type && like.likeableId === this.props.id && like.dislike === true).length > 0 ? "liked" : ""}`}>
+            <button 
+              onClick={this.handleClick('dislike')} 
+              className="like-btn">
+              <i className="fas fa-thumbs-down"></i>
+            </button>
+            <div className="like-count num-dislikes">{this.state.numDislikes}</div>
+          </div>
         </div>
-        <div className={`like-btn-container ${this.props.likes.filter(like => like.likeableType === this.props.type && like.likeableId === this.props.id && like.dislike === true).length > 0 ? "liked" : ""}`}>
-          <button 
-            onClick={this.handleClick('dislike')} 
-            className="like-btn">
-            <i className="fas fa-thumbs-down"></i>
-          </button>
-          <div className="like-count num-dislikes">{this.state.numDislikes}</div>
-        </div>
+        {this.props.type === 'Comment' ? null : (
+          <div className="like-bar">
+            <div id="likes" className={`likes ${this.props.likes.filter(like => like.likeableType === this.props.type && like.likeableId === this.props.id).length > 0 ? "liked-bar" : ""}`} />
+            <div id="dislikes" className="dislikes" />
+          </div>
+        )}
       </div>
     );
   }

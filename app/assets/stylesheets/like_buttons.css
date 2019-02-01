@@ -1,13 +1,19 @@
 .likes-container {
   display: flex;
   font-size: 1.1rem;
-  flex-direction: row;
+  flex-direction: column;
   color: rgb(144, 144, 144);
 }
 
 .comment-likes {
   font-size: 0.9rem;
   margin-left: -7px;
+}
+
+.like-btns {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 9px;
 }
 
 .like-btn-container {
@@ -37,4 +43,27 @@
 .like-count {
   font-size: 13px;
   font-weight: 500;
+}
+
+.like-bar {
+  width: 100%;
+  margin-bottom: -9px;
+}
+
+.likes {
+  float: left;
+  width: 50%;
+  height: 2px;
+  background: rgb(144, 144, 144);
+}
+
+.dislikes {
+  float: right;
+  height: 2px;
+  width: 50%;
+  background: #ccc;
+}
+
+.liked-bar {
+  background: #075ed3;
 }

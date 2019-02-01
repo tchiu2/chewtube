@@ -31,10 +31,24 @@
   border-bottom: 1px solid #e5e5e5;
 }
 
+.video-details-secondary-info {
+  display: flex;
+}
+
+.video-details-icon {
+  margin-top: 16px;
+}
+
 .video-details-views-likes-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.video-details-upload-info-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .video-details-upload-info {
@@ -52,6 +66,20 @@
   color: #606060;
   font-size: 16px;
   line-height: 40px;
+}
+
+.video-details-uploader {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.video-details-publish-date {
+  font-size: 13px;
+  color: rgba(17, 17, 17, 0.6);
+}
+
+.video-details-description {
+  font-size: 14px;
 }
 
 .video-show-edit-btn {

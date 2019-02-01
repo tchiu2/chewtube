@@ -21,3 +21,7 @@ body {
 .main-container {
   height: 100vh;
 }
+
+.main-container > div {
+  margin-top: 56px;
+}

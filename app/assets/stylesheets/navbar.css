@@ -1,4 +1,7 @@
 .navbar-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
   background-color: white;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
   display: flex;
