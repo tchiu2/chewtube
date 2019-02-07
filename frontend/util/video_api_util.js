@@ -8,10 +8,11 @@ export const createVideo = video => {
   });
 };
 
-export const fetchVideos = () => {
+export const fetchVideos = filters => {
   return $.ajax({
     method: 'GET',
     url: 'api/videos',
+    data: filters,
   });
 };
 

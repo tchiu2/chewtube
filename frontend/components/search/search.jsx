@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 class Search extends Component {
   constructor(props) {
@@ -20,6 +21,8 @@ class Search extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    const query = this.state.query.split(" ").join("+");
+    this.props.history.push(`/results?search_query=${query}`);
   }
 
   render() {
@@ -42,4 +45,4 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default withRouter(Search);
