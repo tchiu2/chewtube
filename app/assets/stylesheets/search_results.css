@@ -1,0 +1,11 @@
+.search-result {
+  margin-top: 16px;
+  display: flex;
+}
+
+.search-result-thumb {
+  max-width: 246px;
+}
+
+.search-result-content {
+}

@@ -59,10 +59,10 @@ class Api::VideosController < ApplicationController
 
   def search
     columns = ['videos.title', 'videos.description', 'users.username']
-    query_words = params[:search].split(" ").map(&:downcase)
+    query_words = params[:search].split("+").map(&:downcase)
     query_string = columns
       .product(query_words)
-      .map { |tuple| "#{tuple[0]} LIKE '%#{tuple[1]}%'"}
+      .map { |tuple| "lower(#{tuple[0]}) LIKE '%#{tuple[1]}%'"}
       .join(" OR ")
 
     @videos = Video.joins(:uploader).where(query_string)
