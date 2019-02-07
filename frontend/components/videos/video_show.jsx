@@ -10,6 +10,7 @@ class VideoShow extends Component {
   
   componentDidMount() {
     this.props.fetchVideo(this.props.match.params.videoId);
+    this.props.view(this.props.match.params.videoId);
   }
 
   render() {  

@@ -14,7 +14,7 @@ class VideoDetails extends Component {
         <div className="video-details-primary-info">
           <h1 className="video-details-title">{this.props.video.title}</h1>
           <div className="video-details-views-likes-container">
-            <div className="video-details-views">301 views</div>
+            <div className="video-details-views">{this.props.video.views} {this.props.video.views === 1 ? "view" : "views"}</div>
             <LikeButtons 
               currentUserId={this.props.session.currentUserId}
               type="Video"

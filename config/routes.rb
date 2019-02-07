@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :videos, except: [:new, :edit] do
       post '/likes', to: 'likes#create'
       delete '/likes',  to: 'likes#destroy'
+      resources :views, only: [:create]
     end
     resources :comments, only: [:create, :destroy] do
       post '/likes', to: 'likes#create'

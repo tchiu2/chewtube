@@ -4,8 +4,9 @@ json.video do
   json.uploaderId @video.uploader_id
   json.createdAt @video.created_at
   json.videoUrl @video.video.service_url
-  json.numLikes @video.likes.where(dislike: false).length
-  json.numDislikes @video.likes.where(dislike: true).length
+  json.numLikes @video.likes.where(dislike: false).count
+  json.numDislikes @video.likes.where(dislike: true).count
+  json.views @video.views.count
 end
 
 json.uploader do
