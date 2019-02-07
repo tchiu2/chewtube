@@ -6,6 +6,11 @@ class SearchResults extends Component {
     super(props);
   }
 
+  componentDidMount() {
+    const query = new URLSearchParams(this.props.location.search);
+    this.props.fetchVideos({search: query.get('search_query')});
+  }
+
   render() {
     const results = this.props.videos.map((video, idx) => 
       <SearchResultItem key={idx} video={video} uploader={this.props.users[video.uploaderId]} />

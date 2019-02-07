@@ -1,3 +1,9 @@
+.search-results { 
+  margin: 0 auto;
+  width: 1280px;
+  padding-top: 1px;
+}
+
 .search-result {
   margin-top: 16px;
   display: flex;
@@ -5,7 +11,42 @@
 
 .search-result-thumb {
   max-width: 246px;
+  max-height: 138px;
+  margin-right: 16px;
 }
 
 .search-result-content {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+}
+
+.search-result-title {
+  font-size: 18px;
+  overflow: hidden;
+}
+
+.search-result-details,
+.search-result-description {
+  display: flex;
+  color: rgb(96, 96, 96);
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.search-result-description {
+  padding-top: 8px;
+  margin-bottom: 8px;
+}
+
+.search-result-uploader {
+  margin-right: 8px;
+}
+
+.search-result-views {
+  margin-right: 4px;
+}
+
+.search-result-date {
+  margin-left: 4px;
 }
