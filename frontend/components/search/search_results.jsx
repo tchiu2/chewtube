@@ -4,11 +4,15 @@ import SearchResultItem from './search_result_item';
 class SearchResults extends Component {
   constructor(props) {
     super(props);
+    this.query = new URLSearchParams(this.props.location.search).get('search_query');
   }
 
   componentDidMount() {
-    const query = new URLSearchParams(this.props.location.search);
-    this.props.fetchVideos({search: query.get('search_query')});
+    this.props.fetchVideos({ search: this.query });
+  }
+
+  componentDidUpdate() {
+    this.query = new URLSearchParams(this.props.location.search).get('search_query');
   }
 
   render() {
@@ -17,6 +21,9 @@ class SearchResults extends Component {
     );
     return (
       <div className="search-results">
+        <div className="search-results-header">
+          Displaying results for <strong className="query-string">"{this.query.split("+").join(" ")}"</strong>
+        </div>
         {results}
       </div>
     );

@@ -10,6 +10,7 @@ const SearchResultItem = ({ video, uploader }) => (
         <h2 className="search-result-title">{video.title}</h2>
         <div className="search-result-details">
           <div className="search-result-uploader">{uploader.username}</div>
+          &#8226;
           <div className="search-result-views">301 views</div>
           &#8226;
           <div className="search-result-date">{formatDate(video.createdAt)}</div>

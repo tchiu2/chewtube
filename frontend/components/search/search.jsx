@@ -29,15 +29,17 @@ class Search extends Component {
   render() {
     return (
       <form 
-        className="search-input-container"
+        className="search-form-container"
         onSubmit={this.handleSubmit}>
-        <input
-          className="search-input"
-          ref={node => this.search = node}
-          onChange={this.update()}
-          placeholder="Search"
-          value={this.state.query}
-        />
+        <div className="search-input-container">
+          <input
+            className="search-input"
+            ref={node => this.search = node}
+            onChange={this.update()}
+            placeholder="Search"
+            value={this.state.query}
+          />
+        </div>
         <button className="search-btn">
           <i className="fas fa-search"></i>
         </button>

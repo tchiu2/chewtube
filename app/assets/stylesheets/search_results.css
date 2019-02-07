@@ -4,9 +4,23 @@
   padding-top: 1px;
 }
 
+.search-results-header {
+  padding-top: 16px;
+  padding-bottom: 6px;
+  font-size: 14px;
+  color: rgb(96, 96, 96);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  line-height: 24px;
+}
+
+.query-string {
+  font-weight: 700;
+}
+
 .search-result {
   margin-top: 16px;
   display: flex;
+  width: 860px;
 }
 
 .search-result-thumb {
@@ -23,6 +37,7 @@
 
 .search-result-title {
   font-size: 18px;
+  line-height: 24px;
   overflow: hidden;
 }
 
@@ -40,11 +55,11 @@
 }
 
 .search-result-uploader {
-  margin-right: 8px;
+  margin-right: 4px;
 }
 
 .search-result-views {
-  margin-right: 4px;
+  margin: 0 4px;
 }
 
 .search-result-date {
