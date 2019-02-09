@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { formatThumbnailViews } from '../../util/views_util';
 import { formatDate } from '../../util/date_util';
 
 const SearchResultItem = ({ video, uploader }) => (
@@ -11,7 +12,7 @@ const SearchResultItem = ({ video, uploader }) => (
         <div className="search-result-details">
           <div className="search-result-uploader">{uploader.username}</div>
           &#8226;
-          <div className="search-result-views">301 views</div>
+          <div className="search-result-views">{formatThumbnailViews(video.views)}</div>
           &#8226;
           <div className="search-result-date">{formatDate(video.createdAt)}</div>
         </div>
