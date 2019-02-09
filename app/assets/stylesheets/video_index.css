@@ -50,3 +50,16 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.index-item-views-date {
+  display: flex;
+  flex-direction: row;
+}
+
+.index-item-views {
+  margin-right: 4px;
+}
+
+.index-item-date {
+  margin-left: 4px;
+}

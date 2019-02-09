@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import LikeButtons from '../likes/like_buttons';
 import UserIcon from '../icons/user_icon';
+import { formatDetailViews } from '../../util/views_util';
 
 class VideoDetails extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class VideoDetails extends Component {
         <div className="video-details-primary-info">
           <h1 className="video-details-title">{this.props.video.title}</h1>
           <div className="video-details-views-likes-container">
-            <div className="video-details-views">{this.props.video.views} {this.props.video.views === 1 ? "view" : "views"}</div>
+            <div className="video-details-views">{formatDetailViews(this.props.video.views)}</div>
             <LikeButtons 
               currentUserId={this.props.session.currentUserId}
               type="Video"

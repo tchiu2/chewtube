@@ -5,6 +5,7 @@ json.videos do
       json.uploaderId video.uploader_id
       json.createdAt video.created_at
       json.thumbUrl video.thumbnail.service_url
+      json.views video.views.count
     end
   end
 end
