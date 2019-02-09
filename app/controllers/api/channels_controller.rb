@@ -40,6 +40,7 @@ class Api::ChannelsController < ApplicationController
       render json: { id: @channel.id }
     else
       render json: ["Channel not found"], status: 404
+    end
   end
 
   private
