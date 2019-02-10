@@ -31,7 +31,7 @@ class VideoDetails extends Component {
             <div className="video-details-upload-info">
               <div className="video-details-uploader">{this.props.channel.name}</div>
               <div className="video-details-publish-date">Published on {this.props.video.createdAt.split('T')[0]}</div>
-              {this.props.channel.user_id === this.props.session.currentUserId ? 
+              {this.props.channel.ownerId === this.props.session.currentUserId ? 
                 ( 
                   <Link 
                     className="video-show-edit-btn"

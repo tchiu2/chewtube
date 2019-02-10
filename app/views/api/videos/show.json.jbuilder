@@ -11,6 +11,7 @@ end
 
 json.channel do
   json.partial! 'api/channels/channel', channel: @video.channel
+  json.ownerId @video.channel.user_id
 end
 
 @video.comments.includes(:user, :likes).each do |comment|

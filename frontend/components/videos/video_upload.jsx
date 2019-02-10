@@ -9,6 +9,10 @@ class VideoUpload extends Component {
     this.generateThumbnail = this.generateThumbnail.bind(this);
   }
 
+  componentDidMount() {
+    this.props.fetchUser(this.props.currentUserId);
+  }
+
   update(field) {
     return (e) => {
       this.setState({ [field]: e.target.value });
@@ -53,7 +57,7 @@ class VideoUpload extends Component {
     const formData = new FormData();
     formData.append('video[title]', this.state.title);
     formData.append('video[description]', this.state.description);
-    formData.append('video[channel_id]', this.props.channelId);
+    formData.append('video[channel_id]', this.props.users[currentUserId].ownedChannelIds[0]);
 
     if (this.state.videoFile) {
       const thumbUrl = this.generateThumbnail(document.getElementById('video'));
