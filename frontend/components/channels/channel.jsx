@@ -14,6 +14,12 @@ class Channel extends Component {
     this.props.fetchChannel(this.props.match.params.channelId);
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.channelId !== this.props.match.params.channelId) {
+      this.props.fetchChannel(this.props.match.params.channelId);
+    }
+  }
+
   render() {
     const { channel, currentUserId } = this.props;
     const channelId = this.props.match.params.channelId;

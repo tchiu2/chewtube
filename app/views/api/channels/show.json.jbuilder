@@ -12,6 +12,7 @@ end
       json.createdAt video.created_at
       json.thumbUrl video.thumbnail.service_url
       json.views video.views.count
+      json.channelId video.channel_id
     end
   end
 end
