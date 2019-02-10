@@ -7,6 +7,7 @@ import {
   AuthRoute,
   ProtectedRoute,
   ChannelRequiredRoute, 
+  CreateChannelRoute,
 } from '../util/route_util';
 
 import NavBarContainer from './navbar/navbar_container';
@@ -29,7 +30,7 @@ const Main = () => (
         <ProtectedRoute path="/videos/:videoId/edit" component={VideoEditContainer} />
         <Route path="/videos/:videoId" component={VideoShowContainer} />
         <Route path="/channels/:channelId" component={ChannelContainer} />
-        <ProtectedRoute path="/create_channel" component={CreateChannelContainer} />
+        <CreateChannelRoute path="/create_channel" component={CreateChannelContainer} />
         <Route path="/results" component={SearchResultsContainer} />
         <Route path="/" component={VideoIndexContainer} />
       </Switch>

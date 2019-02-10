@@ -1,12 +1,14 @@
 import { connect } from 'react-redux';
 import { fetchChannel } from '../../actions/channel_actions';
+import { getChannelVideos } from '../../reducers/selectors';
 import Channel from './channel';
 
-const msp = ({ entities: { channels }, session: { currentUserId} }, ownProps) => {
-  const channel = channels[ownProps.match.params.channelId];
+const msp = (state, ownProps) => {
+  const channel = state.entities.channels[ownProps.match.params.channelId];
   return {
     channel,
-    currentUserId,
+    videos: getChannelVideos(state, channel),
+    currentUserId: state.session.currentUserId,
   };
 };
 

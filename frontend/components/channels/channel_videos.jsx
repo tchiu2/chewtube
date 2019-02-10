@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ChannelVideos = (props) => (
+const ChannelVideos = ({ channel, videos }) => (
   null
 );
 

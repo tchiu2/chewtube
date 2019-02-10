@@ -41,6 +41,21 @@ const ChannelRequired = ({ users, currentUserId, loggedIn, path, component: Comp
   />
 );
 
+const CreateChannel = ({ users, currentUserId, loggedIn, path, component: Component }) => (
+  <Route
+    path={path}
+    render={props => {
+       if (loggedIn) {
+         const ownedChannels = users[currentUserId].ownedChannelIds || [];
+         return ownedChannels.length === 0 ? <Component {...props} /> : <Redirect to={`/channels/${ownedChannels[0]}`} /> 
+       } else {
+         return <Redirect to="/login" />
+       }
+    }}
+  />
+);
+
 export const AuthRoute = withRouter(connect(msp)(Auth));
 export const ProtectedRoute = withRouter(connect(msp)(Protected));
 export const ChannelRequiredRoute = withRouter(connect(msp)(ChannelRequired));
+export const CreateChannelRoute = withRouter(connect(msp)(CreateChannel));

@@ -2,6 +2,7 @@ import {
   RECEIVE_VIDEO,
   RECEIVE_VIDEOS,
   REMOVE_VIDEO } from '../actions/video_actions';
+import { RECEIVE_CHANNEL } from '../actions/channel_actions';
 
 export default (state = {}, action) => {
   Object.freeze(state);
@@ -14,6 +15,8 @@ export default (state = {}, action) => {
       const newState = { ...state };
       delete(newState[action.id]);
       return newState;
+    case RECEIVE_CHANNEL:
+      return { ...state, ...action.payload.videos };
     default:
       return state;
   }

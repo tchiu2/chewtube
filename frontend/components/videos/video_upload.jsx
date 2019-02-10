@@ -57,7 +57,7 @@ class VideoUpload extends Component {
     const formData = new FormData();
     formData.append('video[title]', this.state.title);
     formData.append('video[description]', this.state.description);
-    formData.append('video[channel_id]', this.props.users[currentUserId].ownedChannelIds[0]);
+    formData.append('video[channel_id]', this.props.users[this.props.currentUserId].ownedChannelIds[0]);
 
     if (this.state.videoFile) {
       const thumbUrl = this.generateThumbnail(document.getElementById('video'));

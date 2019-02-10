@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import VideoIndexItem from './video_index_item';
+import VideoList from './video_list';
 
 class VideoIndex extends Component {
   constructor(props) {
@@ -11,14 +11,13 @@ class VideoIndex extends Component {
   }
 
   render() {
-    const indexItems = this.props.videos.length > 0 ? this.props.videos.map((video, idx) => <VideoIndexItem key={idx} video={video} channel={this.props.channels[video.channelId]} />) : "";
     return (
-      <div className="video-index">
-        <h1 className="shelf-title">Homepage</h1>
-        <ul className="video-index-shelf">
-          {indexItems} 
-        </ul>
-      </div>
+      <VideoList 
+        title="Homepage" 
+        className="video-index"
+        videos={this.props.videos} 
+        channels={this.props.channels}
+      />
     );
   }
 }
