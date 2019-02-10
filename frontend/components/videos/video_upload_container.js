@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import { createVideo } from '../../actions/video_actions';
 import VideoUpload from './video_upload';
 
-const msp = ({ session: { currentUserId } }) => ({
-  currentUserId,
+const msp = ({ entities: { channels, users }, session: { currentUserId } }) => ({
+  channelId: users[currentUserId].ownedChannelIds[0],
   video: { 
     title: '',
     description: '', 

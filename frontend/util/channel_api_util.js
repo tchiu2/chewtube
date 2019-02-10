@@ -25,9 +25,7 @@ export const updateChannel = channel => {
   return $.ajax({
     method: 'PATCH',
     url: `api/channels/${channel.id}`,
-    data: channel,
-    contentType: false,
-    processData: false,
+    data: { channel },
   });
 };
 

@@ -17,7 +17,7 @@ class SearchResults extends Component {
 
   render() {
     const results = this.props.videos.map((video, idx) => 
-      <SearchResultItem key={idx} video={video} uploader={this.props.users[video.uploaderId]} />
+      <SearchResultItem key={idx} video={video} channel={this.props.channels[video.channelId]} />
     );
     return (
       <div className="search-results">

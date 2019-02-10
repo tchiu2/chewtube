@@ -5,12 +5,12 @@ class Api::VideosController < ApplicationController
     if params[:search]
       search
     else
-      @videos = Video.includes(:uploader).limit(5).order('id desc')
+      @videos = Video.includes(:channel).limit(5).order('id desc')
     end
   end
 
   def show
-    @video = Video.includes(:uploader, :likes).find_by(id: params[:id])
+    @video = Video.includes(:channel, :likes).find_by(id: params[:id])
     if @video
       render :show
     else
@@ -21,7 +21,8 @@ class Api::VideosController < ApplicationController
   def create
     if (params[:video][:thumbnail] != '' && params[:video][:video] != '' &&
         params[:video][:thumbnail] && params[:video][:video])
-      @video = Video.new(video_params)
+      channel = current_user.channels.find_by(id: params[:video][:channel_id])
+      @video = channel.videos.new(video_params)
       if @video.save
         render :show
       else
@@ -54,17 +55,17 @@ class Api::VideosController < ApplicationController
   private
 
   def video_params
-    params.require(:video).permit(:title, :description, :uploader_id, :video, :thumbnail, :id)
+    params.require(:video).permit(:title, :description, :channel_id, :video, :thumbnail, :id)
   end
 
   def search
-    columns = ['videos.title', 'videos.description', 'users.username']
+    columns = ['videos.title', 'videos.description', 'channels.name']
     query_words = params[:search].split("+").map(&:downcase)
     query_string = columns
       .product(query_words)
       .map { |tuple| "lower(#{tuple[0]}) LIKE '%#{tuple[1]}%'"}
       .join(" OR ")
 
-    @videos = Video.joins(:uploader).where(query_string)
+    @videos = Video.joins(:channel).where(query_string)
   end
 end

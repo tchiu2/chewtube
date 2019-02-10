@@ -3,12 +3,11 @@ class User < ApplicationRecord
   validates :email, :session_token, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
   
-  has_many :uploaded_videos,
-    primary_key: :id,
-    foreign_key: :uploader_id,
-    class_name: :Video
-
   has_many :channels, dependent: :destroy
+  has_many :uploaded_videos,
+    through: :channels,
+    source: :videos,
+    dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :views

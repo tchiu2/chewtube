@@ -1,7 +1,7 @@
 json.video do
   json.extract! @video, :title, :description, :id
   json.commentIds @video.comment_ids
-  json.uploaderId @video.uploader_id
+  json.channelId @video.channel_id
   json.createdAt @video.created_at
   json.videoUrl @video.video.service_url
   json.numLikes @video.likes.where(dislike: false).count
@@ -9,8 +9,8 @@ json.video do
   json.views @video.views.count
 end
 
-json.uploader do
-  json.partial! 'api/users/user', user: @video.uploader
+json.channel do
+  json.partial! 'api/channels/channel', channel: @video.channel
 end
 
 @video.comments.includes(:user, :likes).each do |comment|

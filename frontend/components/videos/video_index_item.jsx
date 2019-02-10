@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import { formatDate } from '../../util/date_util';
 import { formatThumbnailViews } from '../../util/views_util';
 
-const VideoIndexItem = ({ video, uploader }) => (
+const VideoIndexItem = ({ video, channel }) => (
   <Link to={`/videos/${video.id}`} className="video-index-item">
     <img className="index-item-thumbnail" src={video.thumbUrl} />
     <div className="index-item-details">
       <div className="index-item-title">{video.title}</div>
-      <div className="index-item-uploader">{uploader.username}</div>
+      <div className="index-item-uploader">{channel.name}</div>
       <div className="index-item-views-date">
         <div className="index-item-views">{formatThumbnailViews(video.views)}</div>
         &#8226;

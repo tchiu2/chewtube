@@ -3,12 +3,12 @@ import { fetchVideo } from '../../actions/video_actions';
 import { view } from '../../actions/view_actions';
 import VideoShow from './video_show';
 
-const msp = ({ entities: { videos, users }, session }, ownProps) => {
+const msp = ({ entities: { videos, channels }, session }, ownProps) => {
   const video = videos[ownProps.match.params.videoId];
-  const user = video === undefined ? { username: "" } : users[video.uploaderId];
+  const channel = video === undefined ? { name: "" } : channels[video.channelId];
   return { 
     video,
-    user,
+    channel,
     session,
   };
 };

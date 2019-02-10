@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import LikeButtons from '../likes/like_buttons';
-import UserIcon from '../icons/user_icon';
+import ChannelIcon from '../icons/channel_icon';
 import { formatDetailViews } from '../../util/views_util';
 
 class VideoDetails extends Component {
@@ -26,12 +26,12 @@ class VideoDetails extends Component {
           </div>
         </div>
         <div className = "video-details-secondary-info">
-          <UserIcon user={this.props.user} className="video-details-icon"/>
+          <ChannelIcon channel={this.props.channel} className="video-details-icon"/>
           <div className="video-details-upload-info-container">
             <div className="video-details-upload-info">
-              <div className="video-details-uploader">{this.props.user.username}</div>
+              <div className="video-details-uploader">{this.props.channel.name}</div>
               <div className="video-details-publish-date">Published on {this.props.video.createdAt.split('T')[0]}</div>
-              {this.props.video.uploaderId === this.props.session.currentUserId ? 
+              {this.props.channel.user_id === this.props.session.currentUserId ? 
                 ( 
                   <Link 
                     className="video-show-edit-btn"
