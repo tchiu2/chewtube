@@ -29,7 +29,9 @@ class VideoDetails extends Component {
           <ChannelIcon channel={this.props.channel} className="video-details-icon"/>
           <div className="video-details-upload-info-container">
             <div className="video-details-upload-info">
-              <div className="video-details-uploader">{this.props.channel.name}</div>
+              <Link to={`/channels/${this.props.channel.id}`}>
+                <div className="video-details-uploader">{this.props.channel.name}</div>
+              </Link>
               <div className="video-details-publish-date">Published on {this.props.video.createdAt.split('T')[0]}</div>
               {this.props.channel.ownerId === this.props.session.currentUserId ? 
                 ( 
