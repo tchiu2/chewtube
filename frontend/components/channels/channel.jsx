@@ -25,31 +25,37 @@ class Channel extends Component {
     const channelId = this.props.match.params.channelId;
     return channel === undefined ? null : (
       <div className="channel-container">
-        <div className="channel-header">
-          <ChannelIcon 
-            channel={channel}
-          />
-          <h2>{channel.name}</h2> 
-          <div className="channel-header-links">
-            <NavLink exact to={`/channels/${channelId}`} activeClassName="selected">Home</NavLink>
-            <NavLink exact to={`/channels/${channelId}/videos`} activeClassName="selected">Videos</NavLink>
-            <NavLink exact to={`/channels/${channelId}/about`} activeClassName="selected">About</NavLink>
+        <div className="channel-header-container">
+          <div className="channel-header">
+            <div className="channel-title">
+              <ChannelIcon 
+                channel={channel}
+              />
+              <h2>{channel.name}</h2> 
+            </div>
+            <div className="channel-header-links">
+              <NavLink exact to={`/channels/${channelId}`} activeClassName="selected">Home</NavLink>
+              <NavLink exact to={`/channels/${channelId}/videos`} activeClassName="selected">Videos</NavLink>
+              <NavLink exact to={`/channels/${channelId}/about`} activeClassName="selected">About</NavLink>
+            </div>
           </div>
         </div>
-				<Switch>
-				  <Route 
-            path="/channels/:channelId/videos" 
-            render={() => <ChannelVideos {...this.props} />}
-          />
-				  <Route 
-            path="/channels/:channelId/about" 
-            render={() => <ChannelAbout {...this.props} />}
-          />
-				  <Route 
-            path="/channels/:channelId/" 
-            render={() => <ChannelHome {...this.props} />}
-          />
-        </Switch>
+        <div className="channel-content">
+          <Switch>
+            <Route 
+              path="/channels/:channelId/videos" 
+              render={() => <ChannelVideos {...this.props} />}
+            />
+            <Route 
+              path="/channels/:channelId/about" 
+              render={() => <ChannelAbout {...this.props} />}
+            />
+            <Route 
+              path="/channels/:channelId/" 
+              render={() => <ChannelHome {...this.props} />}
+            />
+          </Switch>
+        </div>
       </div>
     )
   }

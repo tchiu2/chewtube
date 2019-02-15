@@ -1,0 +1,91 @@
+.channel-header-container {
+  background-color: rgb(250, 250, 250);
+}
+
+.channel-header,
+.channel-content{
+  padding: 0 75px;
+}
+
+.channel-header {
+  padding-top: 16px;
+}
+
+.channel-title {
+  display: flex;
+  align-items: center;
+  padding-left: 32px;
+}
+
+.channel-title > h2 {
+  font-size: 24px;
+}
+
+.channel-header-links {
+  background-color: rgb(250, 250, 250);
+  margin-left: -107px;
+}
+
+.channel-header-links > a {
+  display: inline-flex;
+  color: rgb(96, 96, 96);
+  padding: 0 32px;
+  height: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  align-items: center;
+}
+
+.channel-header-links > a:hover {
+  color: black;
+}
+
+.channel-header-links > a:first-child {
+  margin-left: 107px;
+}
+
+.channel-header-links > a.selected {
+  border-bottom: 3px solid rgb(85, 85, 85);
+  font-weight: 700;
+  color: black;
+}
+
+.channel-content { 
+  padding-top: 24px;
+}
+
+.channel-content h1:first-child {
+  padding-top: 0px;
+}
+
+div[class^="channel"][class*="-heading"] {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.channel-about-page {
+  font-size: 14px;
+  display: flex;
+}
+
+.channel-description-container {
+  padding-bottom: 32px;
+  border-bottom: 1px solid #ccc;
+  flex-grow: 2;
+  margin-right: 96px;
+}
+
+.channel-description-heading {
+  margin: 24px 0;
+}
+
+.channel-stats {
+  margin-top: 12px;
+  flex-grow: 1;
+}
+
+.channel-stats div {
+  border-bottom: 1px solid #ccc;
+  padding: 12px 0;
+}

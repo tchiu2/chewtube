@@ -27,16 +27,12 @@ const Protected = ({ loggedIn, path, component: Component }) => (
   />
 );
 
-const ChannelRequired = ({ users, currentUserId, loggedIn, path, component: Component }) => (
+const ChannelRequired = ({ users, currentUserId, path, ...rest }) => (
   <Route
     path={path}
     render={props => {
-       if (loggedIn) {
-         const ownedChannels = users[currentUserId].ownedChannelIds || [];
-         return ownedChannels.length === 0 ? <Redirect to="/create_channel" /> : <Component {...props} />
-       } else {
-         return <Redirect to="/login" />
-       }
+       const ownedChannels = users[currentUserId].ownedChannelIds || [];
+       return ownedChannels.length === 0 ? <Redirect to="/create_channel" /> : <ProtectedRoute path={path} {...props} />
     }}
   />
 );
