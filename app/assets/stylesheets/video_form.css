@@ -78,25 +78,8 @@
   height: 84px;
 }
 
-.form-submit {
-  margin-top: 15px;
-  padding: 3px 10px;
-  line-height: 30px;
-  background-color: rgb(22, 122, 198);
-  color: white;
-  min-width: 150px;
-  border-radius: 3px;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
-.video-upload-form-submit:hover {
-  background-color: rgb(22, 114, 183);
-}
-
-.video-upload-form-submit:disabled {
-  background-color: rgba(22, 122, 198, 0.5);
+.video-upload-buttons {
+  display: flex;
 }
 
 .video-edit-buttons {

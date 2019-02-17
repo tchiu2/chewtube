@@ -1,0 +1,31 @@
+.form-submit,
+.form-cancel {
+  margin-top: 15px;
+  margin-left: 15px;
+  padding: 3px 10px;
+  line-height: 30px;
+  min-width: 100px;
+  border-radius: 3px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.form-submit {
+  background-color: rgb(22, 122, 198);
+  color: white;
+}
+
+.form-submit:hover {
+  background-color: rgb(22, 114, 183);
+}
+
+.form-submit:disabled {
+  background-color: rgba(22, 122, 198, 0.5);
+}
+
+.form-cancel {
+  border: 1px solid #c6c6c6;
+  color: black;
+  background-color: #f0f0f0;
+}

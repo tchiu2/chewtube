@@ -24,17 +24,15 @@ const Main = () => (
     <header>
       <NavBarContainer /> 
     </header>
-    <div>
-      <Switch>
-        <ChannelRequiredRoute path="/upload" component={VideoUploadContainer} />
-        <ProtectedRoute path="/videos/:videoId/edit" component={VideoEditContainer} />
-        <Route path="/videos/:videoId" component={VideoShowContainer} />
-        <Route path="/channels/:channelId" component={ChannelContainer} />
-        <CreateChannelRoute path="/create_channel" component={CreateChannelContainer} />
-        <Route path="/results" component={SearchResultsContainer} />
-        <Route path="/" component={VideoIndexContainer} />
-      </Switch>
-    </div>
+    <Switch>
+      <ChannelRequiredRoute path="/upload" component={VideoUploadContainer} />
+      <ProtectedRoute path="/videos/:videoId/edit" component={VideoEditContainer} />
+      <Route path="/videos/:videoId" component={VideoShowContainer} />
+      <Route path="/channels/:channelId" component={ChannelContainer} />
+      <CreateChannelRoute path="/create_channel" component={CreateChannelContainer} />
+      <Route path="/results" component={SearchResultsContainer} />
+      <Route path="/" component={VideoIndexContainer} />
+    </Switch>
   </div>
 );
 

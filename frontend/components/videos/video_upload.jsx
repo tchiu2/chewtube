@@ -140,18 +140,20 @@ class VideoUpload extends Component {
                   />
                 </div>
 
-                <button 
-                  disabled={this.state.formSubmitted}
-                  onClick={this.handleCancel}
-                  className="form-cancel">
-                  Cancel
-                </button>
+                <div className="video-upload-buttons">
+                  <button 
+                    disabled={this.state.formSubmitted}
+                    onClick={this.handleCancel}
+                    className="form-cancel">
+                    Cancel
+                  </button>
 
-                <button 
-                  disabled={this.state.formSubmitted}
-                  className="form-submit">
-                  {this.state.formSubmitted ? "Uploading..." : "Upload"}
-                </button>
+                  <button 
+                    disabled={this.state.formSubmitted}
+                    className="form-submit">
+                    {this.state.formSubmitted ? "Uploading..." : "Upload"}
+                  </button>
+                </div>
             </>
             ) : ("")}
         </form>
