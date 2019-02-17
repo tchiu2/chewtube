@@ -23,16 +23,6 @@
   transition: all 0.15s ease-in-out;
 }
 
-.navbar-icon.user-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 16px;
-  background-color: #ccc;
-  color: white;
-  font-weight: 500;
-  margin-right: 14px;
-}
-
 .menu {
   z-index: 10000;
   position: absolute;

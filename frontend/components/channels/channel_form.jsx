@@ -63,7 +63,7 @@ class ChannelForm extends Component {
 
               <button 
                 disabled={this.state.formSubmitted}
-                className="channel-form-submit">
+                className="form-submit">
                 {this.props.formType === 'create' ? "Create Channel" : "Update Channel"}
               </button>
             </div>

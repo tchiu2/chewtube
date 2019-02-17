@@ -6,6 +6,7 @@ class VideoUpload extends Component {
     this.state = { ...this.props.video, formSubmitted: false };
     this.readFile = this.readFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
     this.generateThumbnail = this.generateThumbnail.bind(this);
   }
 
@@ -77,6 +78,12 @@ class VideoUpload extends Component {
     this.props.upload(formData);
   }
 
+  handleCancel(e) {
+    e.preventDefault();
+    const userChannelId = this.props.users[this.props.currentUserId].ownedChannelIds[0];
+    this.props.history.push(`/channels/${userChannelId}`);
+  }
+
   render() {
     return (
       <div className="video-upload-form-container">
@@ -135,7 +142,14 @@ class VideoUpload extends Component {
 
                 <button 
                   disabled={this.state.formSubmitted}
-                  className="video-upload-form-submit">
+                  onClick={this.handleCancel}
+                  className="form-cancel">
+                  Cancel
+                </button>
+
+                <button 
+                  disabled={this.state.formSubmitted}
+                  className="form-submit">
                   {this.state.formSubmitted ? "Uploading..." : "Upload"}
                 </button>
             </>
@@ -144,6 +158,6 @@ class VideoUpload extends Component {
       </div>
     );
   };
-}
 
+}
 export default VideoUpload;

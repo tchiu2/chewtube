@@ -71,7 +71,7 @@ div[class^="channel"][class*="-heading"] {
 
 .channel-description-container {
   padding-bottom: 32px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   flex-grow: 2;
   margin-right: 96px;
 }
@@ -86,6 +86,6 @@ div[class^="channel"][class*="-heading"] {
 }
 
 .channel-stats div {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 12px 0;
 }

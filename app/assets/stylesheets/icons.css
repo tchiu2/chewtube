@@ -1,13 +1,33 @@
 .user-icon,
 .default-channel-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
   text-align: center;
   line-height: 50%;
   background-color: darkgreen;
   color: white;
   text-transform: uppercase;
+}
+
+.user-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
   margin-right: 16px;
   font-size: 20px;
+}
+
+.navbar-icon.user-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  font-size: 16px;
+  margin-right: 14px;
+  background-color: #ccc;
+}
+
+.default-channel-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  font-size: 30px;
+  margin-right: 24px;
 }

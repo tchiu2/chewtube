@@ -1,4 +1,5 @@
 import React from 'react';
+import { formatDateLong } from '../../util/date_util';
 
 const ChannelAbout = ({ channel }) => (
   <div className="channel-about-page">
@@ -8,7 +9,7 @@ const ChannelAbout = ({ channel }) => (
     </div>
     <div className="channel-stats">
       <div className="channel-stats-heading">Stats</div>
-      <div className="channel-join-date">{channel.createdAt}</div>
+      <div className="channel-join-date">Joined {formatDateLong(channel.createdAt)}</div>
     </div>
   </div>
 );

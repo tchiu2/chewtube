@@ -3,13 +3,33 @@ import React, { Component } from 'react';
 class VideoEdit extends Component {
   constructor(props) {
     super(props);
-    this.state = { ...this.props.location.state.video, formSubmitted: false };
+    this.state = { 
+      title: '',
+      description: '',
+      ...(this.props.videos ? this.props.videos[this.props.match.params.videoId] : this.props.location.state.video), 
+      formSubmitted: false,
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.location.state === undefined) {
+      this.props.fetchVideo(this.props.match.params.videoId);
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const videoId = this.props.match.params.videoId;
+    if (nextProps.videos[videoId] !== this.props.videos[videoId]) {
+      this.setState({ ...this.state, ...nextProps.videos[videoId] });
+    }
   }
 
   update(field) {
     return (e) => {
       this.setState({ [field]: e.target.value });
+      console.log(this.state);
     };
   }
 
@@ -35,6 +55,11 @@ class VideoEdit extends Component {
     });
 
     this.props.deleteVideo(this.props.match.params.videoId, this.props.history);
+  }
+
+  handleCancel(e) {
+    e.preventDefault();
+    this.props.history.push(`/videos/${this.props.match.params.videoId}`);
   }
 
   render() {
@@ -63,15 +88,22 @@ class VideoEdit extends Component {
           <div className="video-edit-buttons">
             <button 
               disabled={this.state.formSubmitted}
-              className="video-upload-form-submit">
+              className="form-submit">
               Update
             </button>
 
             <button 
               disabled={this.state.formSubmitted}
               onClick={this.handleDelete.bind(this)}
-              className="video-upload-form-submit">
+              className="form-submit">
               Delete
+            </button>
+
+            <button 
+              disabled={this.state.formSubmitted}
+              onClick={this.handleCancel}
+              className="form-cancel">
+              Cancel
             </button>
           </div>
         </form>

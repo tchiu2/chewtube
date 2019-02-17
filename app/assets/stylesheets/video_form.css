@@ -78,7 +78,7 @@
   height: 84px;
 }
 
-.video-upload-form-submit {
+.form-submit {
   margin-top: 15px;
   padding: 3px 10px;
   line-height: 30px;
@@ -87,6 +87,7 @@
   min-width: 150px;
   border-radius: 3px;
   text-align: center;
+  text-transform: uppercase;
   font-weight: 500;
 }
 
