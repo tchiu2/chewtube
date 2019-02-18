@@ -43,6 +43,7 @@ class VideoList extends Component {
   render() {
     const { className, channels, title, videos, forChannel, loadType } = this.props;
     return (
+      videos.length === 0 ? null : (
       <div className={className}>
         <div className="video-list-container">
           <h1 className="list-title">{title}</h1>
@@ -60,12 +61,14 @@ class VideoList extends Component {
           }
         </div>
       </div>
+      )
     );
   }
 }
 
 VideoList.defaultProps = {
-  videos: []
+  videos: [],
+  channels: {},
 };
 
 export default VideoList;

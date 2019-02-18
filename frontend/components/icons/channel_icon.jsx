@@ -14,4 +14,11 @@ const ChannelIcon = ({ image, channel, className }) => (
   </Link>
 );
 
+ChannelIcon.defaultProps = {
+  channel: {
+    id: "",
+    name: "",
+  }
+};
+
 export default ChannelIcon;

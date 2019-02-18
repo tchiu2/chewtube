@@ -5,15 +5,15 @@ class Api::VideosController < ApplicationController
     if params[:search]
       search
     else
-      @videos = Video.with_attached_thumbnail.includes(:channel).limit(5).order('id desc')
+      @videos = Video.with_attached_thumbnail.includes(:channel).limit(18).order('id desc')
     end
   end
 
   def show
     @video = Video.includes(:channel, :likes).find_by(id: params[:id])
     if @video
-      render :show
     else
+      render :show
       render json: ["Video not found"], status: 404
     end
   end

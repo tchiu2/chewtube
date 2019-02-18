@@ -7,20 +7,30 @@ class VideoIndex extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchVideos("");
+    this.props.fetchVideos({ home: true });
   }
 
   render() {
-    return (
-      <VideoList 
-        title="Homepage" 
-        className="video-index"
+    const shelves = Object.keys(this.props.channels).map(channelId => {
+      return <VideoList
+        key={channelId}
+        title={this.props.channels[channelId].name}
         loadType="click"
-        videos={this.props.videos} 
+        videos={this.props.videos.filter(video => video.channelId === parseInt(channelId))}
         channels={this.props.channels}
       />
+    });
+
+    return (
+      <div className="video-index">
+        {shelves}
+      </div>
     );
   }
+}
+
+VideoIndex.defaultProps = {
+  channels: {},
 }
 
 export default VideoIndex;
