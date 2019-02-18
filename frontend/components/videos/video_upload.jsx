@@ -38,10 +38,19 @@ class VideoUpload extends Component {
 
   generateThumbnail(video) {
 		const canvas = document.createElement("canvas");
-		canvas.width = video.width;
-		canvas.height = video.height;
-		canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
-    return canvas.toDataURL("image/png"); 
+		canvas.width = video.videoWidth / 3;
+		canvas.height = video.videoHeight / 3;
+		canvas.getContext("2d").drawImage(
+      video, 
+      0,
+      0,
+      video.videoWidth,
+      video.videoHeight,
+      0, 
+      0, 
+      canvas.width, 
+      canvas.height);
+    return canvas.toDataURL("image/png", 0.5); 
    }
 
   dataURLtoFile(dataurl, filename) {

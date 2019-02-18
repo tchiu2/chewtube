@@ -11,7 +11,9 @@ const VideoListItem = ({ history, video, channel, forChannel }) => {
 
   return (
     <Link to={`/videos/${video.id}`} className="video-list-item">
-      <img className="list-item-thumbnail" src={video.thumbUrl} />
+      <div className="thumbnail-container">
+        <img className="list-item-thumbnail" src={video.thumbUrl} />
+      </div>
       <div className="list-item-details">
         <div className="list-item-title">{video.title}</div>
         {forChannel === 'true' || channel === undefined ? "" : (

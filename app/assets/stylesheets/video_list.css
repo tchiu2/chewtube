@@ -26,10 +26,19 @@
   margin-bottom: 24px;
 }
 
+.thumbnail-container {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+}
+
 .list-item-thumbnail {
   object-fit: cover;
-  width: inherit;
-  height: 117.5px;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: inherit;
+  max-height: 117.5px;
 }
 
 .list-item-details {
