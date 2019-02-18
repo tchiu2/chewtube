@@ -54,7 +54,8 @@ class Card extends Component {
                   <div>
                     <CardItem className="user-info-card" label={`${this.props.user.username}#${this.props.user.email}`}></CardItem>
                     <div className="menu-items">
-                      <CardItem label={'Sign out'} action={this.props.action} icon={(<i className="fas fa-sign-out-alt"></i>)} />
+                      <CardItem label="My channel" link={`/channels/${this.props.user.ownedChannelIds[0]}`} icon={(<i className="fas fa-user"></i>)} />
+                      <CardItem label="Sign out" action={this.props.action} icon={(<i className="fas fa-sign-out-alt"></i>)} />
                     </div>
                   </div>
                 ) : (

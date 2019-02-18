@@ -16,9 +16,14 @@ Like.destroy_all
   { email: "demouser@gmail.com", username: "demouser", password: "password" },
   { email: "chewbacca@starwars.com", username: "chewie", password: "starwars" },
   { email: "t@gmail.com", username: "Terence", password: "password" },
-  { email: "doge@gmail.com", username: "thisisdoge", password: "dogedoge" }
-].each{ |user| User.create!(user) }
+  { email: "doge@gmail.com", username: "thisisdoge", password: "dogedoge" },
+  { email: "cat@gmail.com", username: "smolcat", password: "password" }
+].each { |user| User.create!(user) }
 
-User.all.each do |user|
-  Channel.create!({ name: "#{user.username} channel", description: "This is #{user.username}'s ChewTube Channel!", user_id: user.id })
-end
+[
+  { name: "Demo Channel", description: "This is demouser's ChewTube Channel. Feel free to have a look around!", user_id: User.find_by(username: "demouser").id },
+  { name: "Chewbacca Rules", description: "WAGRRRRWWGAHHHHWWWRRGGAWWWWWWRR", user_id: User.find_by(username: "chewie").id },
+  { name: "TC", description: "Welcome to Terence's channel", user_id: User.find_by(username: "Terence").id },
+  { name: "Best Dog Videos", description: "Shibas are number 1, but other doges are cool too. This is doge.", user_id: User.find_by(username: "thisisdoge").id },
+  { name: "Best Cat Videos", description: "Cats are better than dogs", user_id: User.find_by(username: "smolcat").id }
+].each { |channel| Channel.create!(channel) }
