@@ -15,7 +15,7 @@ class Comment extends Component {
   }
   
   render() {
-  const { comment, user, currentUserId, uploaderId } = this.props;
+    const { comment, user, currentUserId, channelId } = this.props;
     return (
       <div className="comment-container">
       <UserIcon user={user} className="comment-icon" />
@@ -23,7 +23,7 @@ class Comment extends Component {
           <div className="comment-left-items">
             <div className="comment-content">
               <div className="comment-heading">
-                <div className={`comment-username ${uploaderId === user.id ? "comment-uploader" : ""}`}>{user.username}</div>
+                <div className={`comment-username ${channelId === user.ownedChannelIds[0] ? "comment-uploader" : ""}`}>{user.username}</div>
                 <div className="comment-date">{formatDate(comment.createdAt)}</div>
               </div>
               <div className="comment-body">

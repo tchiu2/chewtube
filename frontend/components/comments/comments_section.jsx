@@ -16,6 +16,7 @@ const mdp = {
 };
 
 const CommentsSection = ({ video, users, comments, session: { currentUserId }, deleteComment }) => {
+  debugger
   return (
     <div className="comments-section"> 
       <CommentForm video={video} />
@@ -23,7 +24,7 @@ const CommentsSection = ({ video, users, comments, session: { currentUserId }, d
         <Comment 
           key={comment.id}
           comment={comment}
-          uploaderId={video.uploaderId}
+          channelId={video.channelId}
           user={users[comment.userId]}
           currentUserId={currentUserId}
           deleteComment={deleteComment}
