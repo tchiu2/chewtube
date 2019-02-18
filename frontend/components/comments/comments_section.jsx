@@ -16,7 +16,6 @@ const mdp = {
 };
 
 const CommentsSection = ({ video, users, comments, session: { currentUserId }, deleteComment }) => {
-  debugger
   return (
     <div className="comments-section"> 
       <CommentForm video={video} />
