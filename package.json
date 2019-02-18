@@ -12,10 +12,12 @@
     "react-router-dom": "^4.3.1",
     "react-textarea-autosize": "^7.1.0",
     "redux": "^4.0.1",
-    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "webpack": "^4.29.0",
     "webpack-cli": "^3.2.1"
+  },
+  "devDependencies": {
+    "redux-logger": "^3.0.6"
   },
   "description": "This is a YouTube clone.",
   "version": "1.0.0",
