@@ -4,6 +4,10 @@
   height: 100vh;
 }
 
+.video-list-container {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 .list-title {
   font-size: 16px;
   font-weight: 500;
@@ -13,6 +17,7 @@
 .video-list {
   margin-top: 24px;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .video-list-item {

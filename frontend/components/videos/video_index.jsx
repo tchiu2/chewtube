@@ -15,6 +15,7 @@ class VideoIndex extends Component {
       <VideoList 
         title="Homepage" 
         className="video-index"
+        loadType="click"
         videos={this.props.videos} 
         channels={this.props.channels}
       />

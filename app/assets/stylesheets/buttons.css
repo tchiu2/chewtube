@@ -29,3 +29,13 @@
   color: black;
   background-color: #f0f0f0;
 }
+
+.show-more {
+  display: block;
+  color: rgb(96, 96, 96);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.007px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
