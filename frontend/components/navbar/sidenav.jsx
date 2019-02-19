@@ -3,6 +3,10 @@ import CardItem from './card_item';
 import ChannelIcon from '../icons/channel_icon';
 
 class SideNav extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   componentDidMount() {
     this.props.fetchChannels();
   }
@@ -29,7 +33,7 @@ class SideNav extends Component {
             <div className="sidenav-section-title">Contact</div>
             <CardItem label="Github" link="https://github.com/tchiu2/chewtube" type="external" icon={(<i className="fab fa-github"></i>)}/>
             <CardItem label="LinkedIn" link="https://www.linkedin.com/in/terence-chiu-ba9b2841/" type="external" icon={(<i className="fab fa-linkedin"></i>)}/>
-            <CardItem label="Personal Site" link="https://terencechiu.me" type="external" icon={(<i class="fas fa-user-circle"></i>)}/>
+            <CardItem label="Personal Site" link="https://terencechiu.me" type="external" icon={(<i className="fas fa-user-circle"></i>)}/>
           </div>
         </div>
       </>

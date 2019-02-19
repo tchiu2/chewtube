@@ -33,6 +33,14 @@
   padding: 0 24px;
 }
 
+.sidenav-section .navbar-card-item:hover {
+  background-color: #dcdcdc;
+}
+
+.active > .navbar-card-item {
+  background-color: #dcdcdc;
+}
+
 .sidenav-section .navbar-card-icon {
   padding: 4px;
   font-size: 24px;
