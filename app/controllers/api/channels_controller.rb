@@ -1,5 +1,6 @@
 class Api::ChannelsController < ApplicationController
   def index
+    @channels = Channel.limit(5).order('id desc')
   end
 
   def show

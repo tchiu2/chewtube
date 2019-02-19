@@ -16,7 +16,7 @@ export default (state = {}, action) => {
       delete(newState[action.id]);
       return newState;
     case RECEIVE_VIDEOS:
-      return { ...action.payload.channels };
+      return { ...state, ...action.payload.channels };
     case RECEIVE_VIDEO:
       return {
         ...state,

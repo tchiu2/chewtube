@@ -24,4 +24,32 @@
   margin-left: 240px;
 }
 
+.sidenav-section {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
 
+.sidenav-section .navbar-card-item {
+  padding: 0 24px;
+}
+
+.sidenav-section .navbar-card-icon {
+  padding: 4px;
+}
+
+.sidenav-section-title {
+  padding: 8px 24px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(96, 96, 96);
+}
+
+.sidenav-channel-item > .navbar-card-icon {
+  color: white;
+  background-color: #1a73a8;
+  height: 24px;
+  width: 24px;
+  border-radius: 12px;
+  font-size: 12px;
+}
