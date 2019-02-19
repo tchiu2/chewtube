@@ -5,12 +5,12 @@ json.channel do
   json.videoIds @channel.videos.map { |video| video.id }
 end
 
-@channel.videos.includes(:likes).each do |video|
+@channel.videos.each do |video|
   json.videos do
     json.set! video.id do
       json.extract! video, :id, :title, :description
       json.createdAt video.created_at
-      json.thumbUrl video.thumbnail.service_url
+      json.thumbUrl url_for(video.thumbnail)
       json.views video.views.count
       json.channelId video.channel_id
     end

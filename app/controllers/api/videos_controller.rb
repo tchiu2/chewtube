@@ -5,7 +5,7 @@ class Api::VideosController < ApplicationController
     if params[:search]
       search
     else
-      @videos = Video.with_attached_thumbnail.includes(:channel).limit(18).order('id desc')
+      @videos = Video.with_attached_thumbnail.includes(:channel, :views).limit(18).order('id desc')
     end
   end
 
@@ -66,6 +66,6 @@ class Api::VideosController < ApplicationController
       .map { |tuple| "lower(#{tuple[0]}) LIKE '%#{tuple[1]}%'"}
       .join(" OR ")
 
-    @videos = Video.joins(:channel).where(query_string)
+    @videos = Video.with_attached_thumbnail.includes(:views, :channel).joins(:channel).where(query_string)
   end
 end

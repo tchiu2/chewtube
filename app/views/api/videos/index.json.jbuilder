@@ -4,7 +4,7 @@ json.videos do
       json.extract! video, :id, :title, :description
       json.channelId video.channel_id
       json.createdAt video.created_at
-      json.thumbUrl video.thumbnail.service_url
+      json.thumbUrl url_for(video.thumbnail)
       json.views video.views.count
     end
   end

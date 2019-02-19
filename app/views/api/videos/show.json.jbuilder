@@ -3,7 +3,7 @@ json.video do
   json.commentIds @video.comment_ids
   json.channelId @video.channel_id
   json.createdAt @video.created_at
-  json.videoUrl @video.video.service_url
+  json.videoUrl url_for(@video.video)
   json.numLikes @video.likes.where(dislike: false).count
   json.numDislikes @video.likes.where(dislike: true).count
   json.views @video.views.count
