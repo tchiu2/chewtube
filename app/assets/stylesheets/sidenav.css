@@ -1,0 +1,11 @@
+.sidenav-container {
+  background: #f5f5f5;
+  overflow-y: scroll;
+  height: 100%;
+  width: 240px;
+  display: none;
+}
+
+.sidenav-container.opened {
+  display: block;
+}

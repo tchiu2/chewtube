@@ -35,9 +35,17 @@
   margin-left: 4px; 
 }
 
+.navbar-left-links,
 .navbar-right-links {
   display: flex;
   align-items: center;
+}
+
+.navbar-left-links > .navbar-card {
+  margin-left: 0;
+}
+.navbar-left-links > a {
+  margin-left: 6px;
 }
 
 .navbar-btn {

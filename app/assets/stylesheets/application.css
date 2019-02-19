@@ -14,14 +14,19 @@
  *= require_self
  */
 
+html, body, main, main > div, .main-container > div {
+  height: 100%;
+}
+
 body {
 	font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
 }
 
 .main-container {
-  height: 100vh;
+  height: 100%;
 }
 
 .main-container > div {
   margin-top: 56px;
+  display: flex;
 }

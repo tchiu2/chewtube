@@ -1,6 +1,7 @@
 .video-upload-form-container {
   background-color: rgb(241, 241, 241);
   height: 100vh;
+  flex-grow: 1;
   padding-top: 15px;
 }
 
