@@ -18,8 +18,7 @@ class NavBar extends Component {
   handleToggle() {
     this.setState({
       showNav: !this.state.showNav,
-    });
-    console.log(this.state.showNav);
+    }, () => this.props.toggleSideNav(this.state));
   }
   
   render() {
