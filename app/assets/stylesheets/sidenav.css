@@ -35,6 +35,7 @@
 
 .sidenav-section .navbar-card-icon {
   padding: 4px;
+  font-size: 24px;
 }
 
 .sidenav-section-title {
@@ -47,9 +48,11 @@
 
 .sidenav-channel-item > .navbar-card-icon {
   color: white;
-  background-color: #1a73a8;
+  background-color: #f7941c;
   height: 24px;
   width: 24px;
   border-radius: 12px;
   font-size: 12px;
+  margin-left: 4px;
+  margin-right: 28px;
 }
