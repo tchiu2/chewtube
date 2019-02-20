@@ -7,10 +7,6 @@ import VideoList from './video_list';
 class VideoShow extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      nextVideo: ''
-    };
-    this.playNext = this.playNext.bind(this);
   }
   
   componentDidMount() {
@@ -27,11 +23,6 @@ class VideoShow extends Component {
     }
   }
 
-  playNext(e) {
-    const nextVideo = document.querySelector('.video-list .video-list-item:first-child')
-    setTimeout(() => nextVideo.click(), 3000);
-  }
-
   render() {  
     return (this.props.video === undefined || this.props.channel === undefined) ? null : 
       (
@@ -40,6 +31,7 @@ class VideoShow extends Component {
             <Video 
               onEnded={this.playNext}
               src={this.props.video.videoUrl}
+              nextVideo={this.props.nextVideos[0]}
             />
             <div className="video-show-info-container">
               <VideoDetails 
@@ -54,7 +46,7 @@ class VideoShow extends Component {
             <VideoList
               className="up-next-container"
               channels={this.props.channels}
-              videos={this.props.nextVideos.slice(0,6).sort(() => 0.5 - Math.random())}
+              videos={this.props.nextVideos}
               title="Up next"
             />
           </div>
@@ -62,4 +54,5 @@ class VideoShow extends Component {
     )
   }
 }
+
 export default VideoShow;

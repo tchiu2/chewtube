@@ -10,7 +10,7 @@ class Api::VideosController < ApplicationController
         .includes(:channel, :views)
         .where.not(id: params[:next])
         .limit(6)
-        .order('id desc')
+        .order('RANDOM()')
     else
       @videos = Video.with_attached_thumbnail.includes(:channel, :views).limit(18).order('id desc')
     end

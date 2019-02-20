@@ -1,0 +1,39 @@
+.video-overlay { 
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.overlay-background {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  font-size: 18px;
+  background-size: cover;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0.5;
+  z-index: 9000;
+}
+
+.overlay-background div, 
+.overlay-background button {
+  margin-top: 24px;
+}
+
+.overlay-video-title {
+  font-size: 30px;
+}
+
+.overlay-cancel {
+  padding: 3px 7px;
+}
+
+.overlay-cancel:hover {
+  background: rgba(245, 245, 245, 0.8);
+  color: black;
+}
