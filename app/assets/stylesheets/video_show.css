@@ -1,10 +1,24 @@
-.video-show-container {
+.video-show-page-container {
+  width: 100%;
+  display: flex;
+}
+
+.video-show-main-container,
+.video-show-secondary-container {
+  padding-top: 24px;
+  padding-right: 24px;
+}
+
+.video-show-main-container {
   display: flex;
   flex-direction: column;
-  margin-left: 24px;
-  padding-top: 24px;
   width: 75%;
   height: 100%;
+  margin-left: 24px;
+}
+
+.video-show-secondary-container {
+  width: 428px;
 }
 
 #video-content {

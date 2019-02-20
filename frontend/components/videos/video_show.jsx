@@ -16,16 +16,19 @@ class VideoShow extends Component {
   render() {  
     return (this.props.video === undefined || this.props.channel === undefined) ? null : 
       (
-        <div className="video-show-container">
-          <Video src={this.props.video.videoUrl} />
-          <div className="video-show-info-container">
-            <VideoDetails 
-              video={this.props.video} 
-              session={this.props.session}
-              channel={this.props.channel}
-            />
+        <div className="video-show-page-container">
+          <div className="video-show-main-container">
+            <Video src={this.props.video.videoUrl} />
+            <div className="video-show-info-container">
+              <VideoDetails 
+                video={this.props.video} 
+                session={this.props.session}
+                channel={this.props.channel}
+              />
+            </div>
+            <CommentsSection video={this.props.video} />
           </div>
-          <CommentsSection video={this.props.video} />
+          <div className="video-show-secondary-container"></div>
         </div>
     )
   }
