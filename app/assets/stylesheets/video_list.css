@@ -1,7 +1,9 @@
 .video-index {
-  width: 1285px;
+  width: 100%;
+  max-width: 1285px;
   margin: auto;
   height: 100vh;
+  padding: 0 40px;
 }
 
 .video-list-container {

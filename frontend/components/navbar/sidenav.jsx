@@ -17,8 +17,13 @@ class SideNav extends Component {
     classes.push(showNav ? "opened" : "closed");
 
     const channelList = channels.map(channel => (
-      <CardItem key={channel.id} className="sidenav-channel-item" label={channel.name} link={`/channels/${channel.id}`} />
+      <CardItem 
+        key={channel.id} 
+        className="sidenav-channel-item" 
+        label={channel.name}
+        link={`/channels/${channel.id}`} />
       ));
+
     return (
       <>
         <div className={classes.join(" ")}>
@@ -31,9 +36,21 @@ class SideNav extends Component {
           </div>
           <div className="sidenav-section">
             <div className="sidenav-section-title">Contact</div>
-            <CardItem label="Github" link="https://github.com/tchiu2/chewtube" type="external" icon={(<i className="fab fa-github"></i>)}/>
-            <CardItem label="LinkedIn" link="https://www.linkedin.com/in/terence-chiu-ba9b2841/" type="external" icon={(<i className="fab fa-linkedin"></i>)}/>
-            <CardItem label="Personal Site" link="https://terencechiu.me" type="external" icon={(<i className="fas fa-user-circle"></i>)}/>
+            <CardItem 
+              label="Github"
+              link="https://github.com/tchiu2/chewtube"
+              type="external" 
+              icon={(<i className="fab fa-github"></i>)}/>
+            <CardItem 
+              label="LinkedIn"
+              link="https://www.linkedin.com/in/terence-chiu-ba9b2841/"
+              type="external"
+              icon={(<i className="fab fa-linkedin"></i>)}/>
+            <CardItem 
+              label="Personal Site" 
+              link="https://terencechiu.me" 
+              type="external" 
+              icon={(<i className="fas fa-user-circle"></i>)}/>
           </div>
         </div>
       </>
