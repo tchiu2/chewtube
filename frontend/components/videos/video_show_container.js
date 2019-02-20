@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchVideo, fetchVideos } from '../../actions/video_actions';
+import { fetchVideo, fetchVideos, clearVideos } from '../../actions/video_actions';
 import { view } from '../../actions/view_actions';
 import VideoShow from './video_show';
 
@@ -19,6 +19,7 @@ const msp = ({ entities: { videos, channels }, session }, ownProps) => {
 const mdp = {
   fetchVideo,
   fetchVideos,
+  clearVideos,
   view,
 };
 

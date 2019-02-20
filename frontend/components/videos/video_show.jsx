@@ -10,6 +10,7 @@ class VideoShow extends Component {
   }
   
   componentDidMount() {
+    this.props.clearVideos();
     this.props.fetchVideos({ next: this.props.match.params.videoId });
     this.props.fetchVideo(this.props.match.params.videoId);
     this.props.view(this.props.match.params.videoId);
@@ -17,6 +18,7 @@ class VideoShow extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.videoId !== this.props.match.params.videoId) {
+      this.props.clearVideos();
       this.props.fetchVideos({ next: this.props.match.params.videoId });
       this.props.fetchVideo(this.props.match.params.videoId);
       this.props.view(this.props.match.params.videoId);

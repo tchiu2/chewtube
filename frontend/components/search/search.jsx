@@ -22,6 +22,7 @@ class Search extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const query = this.state.query.split(" ").join("+");
+    this.props.clearVideos();
     this.props.fetchVideos({ search: query });
     this.props.history.push(`/results?search_query=${query}`);
   }

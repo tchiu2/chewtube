@@ -3,6 +3,7 @@ import * as APIUtil from '../util/video_api_util';
 export const RECEIVE_VIDEO = 'RECEIVE_VIDEO';
 export const RECEIVE_VIDEOS = 'RECEIVE_VIDEOS';
 export const REMOVE_VIDEO = 'REMOVE_VIDEO';
+export const CLEAR_VIDEOS = 'CLEAR_VIDEOS';
 export const RECEIVE_VIDEO_ERRORS = 'RECEIVE_VIDEO_ERRORS';
 
 const receiveVideos = payload => ({
@@ -18,6 +19,10 @@ const receiveVideo = payload => ({
 const removeVideo = id => ({
   type: REMOVE_VIDEO,
   id,
+});
+
+export const clearVideos = () => ({
+  type: CLEAR_VIDEOS,
 });
 
 const receiveVideoErrors = errors => ({
