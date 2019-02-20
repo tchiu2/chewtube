@@ -33,6 +33,7 @@ class Video extends Component {
       <div className="video-content-container">
         <video autoPlay
             controls={this.state.showControls ? "controls" : ""}
+            onEnded={this.props.onEnded}
             onMouseEnter={this.showControls}
             onMouseLeave={this.hideControls}
             onClick={this.togglePlay}

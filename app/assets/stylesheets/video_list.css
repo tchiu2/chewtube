@@ -79,3 +79,34 @@
 .list-item-date {
   margin-left: 4px;
 }
+
+.up-next-container .list-title {
+  padding-top: 0;
+}
+
+.up-next-container .video-list-item {
+  display: flex;
+  flex-grow: 1;
+}
+
+.up-next-container .video-list-item:first-child {
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.up-next-container .thumbnail-container {
+  margin-right: 8px;
+  height: 94px;
+  width: 168px;
+}
+
+.up-next-container .list-item-thumbnail {
+  object-fit: scale-down; 
+  width: 168px;
+}
+
+.up-next-container .list-item-title {
+  height: auto;
+  margin-top: 0;
+}

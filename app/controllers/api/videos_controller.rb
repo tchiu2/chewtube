@@ -4,13 +4,20 @@ class Api::VideosController < ApplicationController
   def index
     if params[:search]
       search
+    elsif params[:next]
+      @videos = Video
+        .with_attached_thumbnail
+        .includes(:channel, :views)
+        .where.not(id: params[:next])
+        .limit(6)
+        .order('id desc')
     else
       @videos = Video.with_attached_thumbnail.includes(:channel, :views).limit(18).order('id desc')
     end
   end
 
   def show
-    @video = Video.includes(:channel, :likes).find_by(id: params[:id])
+    @video = Video.includes(:channel, :likes, :views).find_by(id: params[:id])
     if @video
     else
       render :show

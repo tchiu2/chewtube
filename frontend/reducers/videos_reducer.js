@@ -8,7 +8,7 @@ export default (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_VIDEOS:
-      return { ...action.payload.videos };
+      return { ...state, ...action.payload.videos };
     case RECEIVE_VIDEO:
       return { ...state, [action.payload.video.id]: action.payload.video };
     case REMOVE_VIDEO:
