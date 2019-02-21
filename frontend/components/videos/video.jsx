@@ -47,7 +47,7 @@ class Video extends Component {
           <VideoOverlay
             nextVideo={this.props.nextVideo}
             toggleOverlay={this.props.toggleOverlay}
-            timeout={3}
+            timeout={8}
           />
         ) : null }
         <video autoPlay

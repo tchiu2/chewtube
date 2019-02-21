@@ -26,6 +26,7 @@
 .overlay-heading,
 .overlay-video-title,
 .overlay-channel-name,
+.overlay-countdown,
 .overlay-cancel {
   color: white;
   margin-top: 24px;
@@ -40,6 +41,23 @@
 .overlay-channel-name {
   margin-top: 12px;
   font-size: 14px;
+}
+
+.overlay-countdown {
+	position: relative;
+}
+
+.overlay-next {
+  position: absolute;
+	height: 92px;
+	width: 92px;
+	left: 4px;
+	top: 28px;
+	display: flex;
+	justify-content: center;
+	font-size: 30px;
+	background: rgba(245, 245, 245, 0.3);
+	border-radius: 50%;
 }
 
 .overlay-cancel {
