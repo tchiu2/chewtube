@@ -29,7 +29,6 @@ class VideoOverlay extends Component {
   startTimer() {
     this.interval = setInterval(() => {
       this.setState({ elapsedTime: this.state.elapsedTime + 0.1 });
-      console.log(this.state.elapsedTime);
     }, 100);
   }
 

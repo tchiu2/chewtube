@@ -11,11 +11,13 @@ class Channel extends Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.props.fetchChannel(this.props.match.params.channelId);
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.channelId !== this.props.match.params.channelId) {
+      window.scrollTo(0, 0);
       this.props.fetchChannel(this.props.match.params.channelId);
     }
   }
