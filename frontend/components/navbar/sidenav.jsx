@@ -47,7 +47,7 @@ class SideNav extends Component {
               type="external"
               icon={(<i className="fab fa-linkedin"></i>)}/>
             <CardItem 
-              label="Personal Site" 
+              label="Portfolio" 
               link="https://terencechiu.me" 
               type="external" 
               icon={(<i className="fas fa-user-circle"></i>)}/>

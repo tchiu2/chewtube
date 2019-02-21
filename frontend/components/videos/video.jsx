@@ -33,31 +33,26 @@ class Video extends Component {
   }
 
   handlePlay(e) {
-    this.setState({
-      ended: false,
-    });
+    this.props.toggleOverlay({ showOverlay: false });
   }
 
   handleEnded(e) {
-    this.setState({
-      ended: true,
-    }, e => {
-      const nextVideo = document.querySelector('.video-list .video-list-item:first-child')
-      setTimeout(() => nextVideo.click(), 8000);
-    });
+    this.props.toggleOverlay({ showOverlay: true });
   }
 
   render() {
     return (
       <div className="video-content-container">
-        {this.state.ended ? (
+        {this.props.showOverlay ? (
           <VideoOverlay
             nextVideo={this.props.nextVideo}
+            toggleOverlay={this.props.toggleOverlay}
             timeout={3}
           />
         ) : null }
         <video autoPlay
             controls={this.state.showControls ? "controls" : ""}
+            onEnded={this.handleEnded}
             onMouseEnter={this.showControls}
             onMouseLeave={this.hideControls}
             onClick={this.togglePlay}

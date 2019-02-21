@@ -26,14 +26,19 @@ class VideoShow extends Component {
   }
 
   render() {  
-    return (this.props.video === undefined || this.props.channel === undefined) ? null : 
+    return (this.props.video === undefined || this.props.channel === undefined || this.props.nextVideos.length === 0) ? null : 
       (
         <div className="video-show-page-container">
           <div className="video-show-main-container">
             <Video 
-              onEnded={this.playNext}
               src={this.props.video.videoUrl}
-              nextVideo={this.props.nextVideos[0]}
+              showOverlay={this.props.showOverlay}
+              toggleOverlay={this.props.toggleOverlay}
+              nextVideo={{
+                title: this.props.nextVideos[0].title,
+                thumbUrl: this.props.nextVideos[0].thumbUrl,
+                channel: this.props.channels[this.props.nextVideos[0].channelId].name,
+              }}
             />
             <div className="video-show-info-container">
               <VideoDetails 

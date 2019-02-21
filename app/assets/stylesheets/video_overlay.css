@@ -1,39 +1,52 @@
 .video-overlay { 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  background-size: contain;
+  height: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .overlay-background {
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   padding: 40px;
-  font-size: 18px;
   background-size: cover;
   position: absolute;
   height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   opacity: 0.5;
-  z-index: 9000;
+  z-index: 5000;
 }
 
-.overlay-background div, 
-.overlay-background button {
+.overlay-heading,
+.overlay-video-title,
+.overlay-channel-name,
+.overlay-cancel {
+  color: white;
   margin-top: 24px;
+  font-size: 18px;
+  z-index: 6000;
 }
 
 .overlay-video-title {
   font-size: 30px;
 }
 
+.overlay-channel-name {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
 .overlay-cancel {
-  padding: 3px 7px;
+  padding: 6px 10px;
+  border-radius: 2px;
 }
 
 .overlay-cancel:hover {
-  background: rgba(245, 245, 245, 0.8);
-  color: black;
+  background: rgba(245, 245, 245, 0.5);
 }
