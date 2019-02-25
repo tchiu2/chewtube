@@ -23,7 +23,6 @@ class CommentsSection extends Component {
   }
 
   handleClick(user) {
-    debugger
     return (e) => {
       e.preventDefault();
       user.ownedChannelIds.length > 0 ? this.props.history.push(`/channels/${user.ownedChannelIds[0]}`) : null;
