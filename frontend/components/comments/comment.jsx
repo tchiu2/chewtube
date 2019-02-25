@@ -18,12 +18,12 @@ class Comment extends Component {
     const { comment, user, currentUserId, channelId } = this.props;
     return (
       <div className="comment-container">
-      <UserIcon user={user} className="comment-icon" />
+      <UserIcon user={user} className="comment-icon" onClick={this.props.onClick}/>
         <div className="comment-main-content">
           <div className="comment-left-items">
             <div className="comment-content">
               <div className="comment-heading">
-                <div className={`comment-username ${channelId === user.ownedChannelIds[0] ? "comment-uploader" : ""}`}>{user.username}</div>
+                <div className={`comment-username ${channelId === user.ownedChannelIds[0] ? "comment-uploader" : ""}`} onClick={this.props.onClick}>{user.username}</div>
                 <div className="comment-date">{formatDate(comment.createdAt)}</div>
               </div>
               <div className="comment-body">

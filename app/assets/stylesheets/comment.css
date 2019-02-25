@@ -29,6 +29,7 @@
   margin-right: 4px;
   font-weight: 500;
   color: rgb(10, 10, 10);
+  cursor: pointer;
 }
 
 .comment-uploader {

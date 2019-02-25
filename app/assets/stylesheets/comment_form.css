@@ -5,6 +5,10 @@
   font-size: 14px;
 }
 
+.comment-form-icon {
+  cursor: default;
+}
+
 .comment-form-input-container {
   display: flex;
   flex-direction: column;
