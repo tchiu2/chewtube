@@ -26,7 +26,7 @@ class CommentsSection extends Component {
     debugger
     return (e) => {
       e.preventDefault();
-      this.props.history.push(`/channels/${user.ownedChannelIds[0]}`);
+      user.ownedChannelIds.length > 0 ? this.props.history.push(`/channels/${user.ownedChannelIds[0]}`) : null;
     }
   }
 
