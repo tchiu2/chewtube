@@ -8,7 +8,7 @@ class SideNav extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchChannels();
+    setTimeout(this.props.fetchChannels, 0);
   }
 
   render() {
