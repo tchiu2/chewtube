@@ -10,19 +10,20 @@ class VideoShow extends Component {
   }
   
   componentDidMount() {
-    this.props.clearVideos();
-    this.props.fetchVideos({ next: this.props.match.params.videoId });
-    this.props.fetchVideo(this.props.match.params.videoId);
-    this.props.view(this.props.match.params.videoId);
+    this.fetchContent();
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.videoId !== this.props.match.params.videoId) {
-      this.props.clearVideos();
-      this.props.fetchVideos({ next: this.props.match.params.videoId });
-      this.props.fetchVideo(this.props.match.params.videoId);
-      this.props.view(this.props.match.params.videoId);
+      this.fetchContent();
     }
+  }
+
+  fetchContent() {
+    this.props.clearVideos();
+    this.props.fetchVideos({ next: this.props.match.params.videoId });
+    this.props.fetchVideo(this.props.match.params.videoId);
+    this.props.view(this.props.match.params.videoId);
   }
 
   render() {  

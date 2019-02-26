@@ -36,6 +36,9 @@
 
 .overlay-video-title {
   font-size: 30px;
+  overflow-wrap: break-word;
+  max-width: 80%;
+  text-align: center;
 }
 
 .overlay-channel-name {

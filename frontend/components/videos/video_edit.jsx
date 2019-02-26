@@ -28,7 +28,9 @@ class VideoEdit extends Component {
 
   update(field) {
     return (e) => {
-      this.setState({ [field]: e.target.value });
+      const { value, maxLength } = e.target;
+      const fieldValue = value.slice(0, maxLength);
+      this.setState({ [field]: fieldValue });
     };
   }
 
@@ -72,6 +74,7 @@ class VideoEdit extends Component {
               className="video-upload-form-input"
               required
               type="text"
+              maxLength="100"
               value={this.state.title}
               onChange={this.update('title')}
             />
@@ -79,6 +82,7 @@ class VideoEdit extends Component {
             <textarea
               className="video-upload-form-description"
               required
+              maxLength="1000"
               value={this.state.description}
               onChange={this.update('description')}
             />
