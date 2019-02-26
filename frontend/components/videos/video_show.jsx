@@ -34,6 +34,7 @@ class VideoShow extends Component {
               src={this.props.video.videoUrl}
               showOverlay={this.props.showOverlay}
               toggleOverlay={this.props.toggleOverlay}
+              playNext={() => this.props.history.push(`/videos/${this.props.nextVideos[0].id}`)}
               nextVideo={{
                 title: this.props.nextVideos[0].title,
                 thumbUrl: this.props.nextVideos[0].thumbUrl,

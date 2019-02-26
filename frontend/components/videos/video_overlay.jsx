@@ -8,8 +8,6 @@ class VideoOverlay extends Component {
       elapsedTime: 0,
     };
 
-    this.nextVideo = document.querySelector('.video-list .video-list-item:first-child')
-
     this.startTimer = this.startTimer.bind(this);
     this.queueNext = this.queueNext.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -22,38 +20,40 @@ class VideoOverlay extends Component {
   }
 
   componentWillUnmount() {
-    clearTimeout(this.timer);
-    clearInterval(this.interval);
+    this.clearTimers();
   }
 
   startTimer() {
-    this.interval = setInterval(() => {
+    const interval = setInterval(() => {
       this.setState({ elapsedTime: this.state.elapsedTime + 0.1 });
     }, 100);
+    this.setState({ interval });
+  }
+
+  clearTimers() {
+    clearInterval(this.state.interval);
+    clearTimeout(this.state.timer);
+    this.props.toggleOverlay({ showOverlay: false });
   }
 
   queueNext() {
     this.startTimer();
-    this.timer = setTimeout(() => {
-      this.props.toggleOverlay({ showOverlay: false });
-      this.nextVideo.click()
-      clearInterval(this.interval);
-    }, 8000);
+    const timer = setTimeout(() => {
+      this.clearTimers();
+      this.props.playNext();
+    }, this.props.timeout * 1000);
+    this.setState({ timer });
   }
 
 	handleClick(e) {
     e.preventDefault();
-    clearTimeout(this.timer); 
-    clearInterval(this.interval);
-    this.props.toggleOverlay({ showOverlay: false });
-    this.nextVideo.click();
+    this.clearTimers();
+    this.props.playNext();
   }
 
   handleCancel(e) {
     e.preventDefault();
-    clearTimeout(this.timer); 
-    clearInterval(this.interval);
-    this.props.toggleOverlay({ showOverlay: false });
+    this.clearTimers();
   }
   
   render() {
