@@ -4,6 +4,7 @@ class VideoUpload extends Component {
   constructor(props) {
     super(props);
     this.state = { ...this.props.video, formSubmitted: false };
+    this.updateFrame = this.updateFrame.bind(this);
     this.readFile = this.readFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
@@ -18,6 +19,10 @@ class VideoUpload extends Component {
     return (e) => {
       this.setState({ [field]: e.target.value });
     };
+  }
+
+  updateFrame(e) {
+    this.video.currentTime = 2;
   }
 
   readFile(e) {
@@ -70,7 +75,7 @@ class VideoUpload extends Component {
     formData.append('video[channel_id]', this.props.users[this.props.currentUserId].ownedChannelIds[0]);
 
     if (this.state.videoFile) {
-      const thumbUrl = this.generateThumbnail(document.getElementById('video'));
+      const thumbUrl = this.generateThumbnail(this.video);
       const thumbnail = this.dataURLtoFile(thumbUrl, `${this.state.title}_thumb.png`);
       this.setState({
         thumbUrl,
@@ -104,6 +109,8 @@ class VideoUpload extends Component {
               { this.state.videoUrl ?
                 (
                   <video width="250" height="141"
+                    ref={node => this.video = node}
+                    onLoadedData={this.updateFrame}
                     id="video" 
                     src={this.state.videoUrl} 
                     hidden={this.state.videoUrl === "" ? "hidden" : ""}/>

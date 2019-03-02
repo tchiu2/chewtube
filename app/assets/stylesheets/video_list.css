@@ -38,9 +38,8 @@
   object-fit: cover;
   display: block;
   width: auto;
-  height: auto;
   max-width: inherit;
-  max-height: 117.5px;
+  height: 117.5px;
 }
 
 .list-item-details {
@@ -98,13 +97,12 @@
 
 .up-next-container .thumbnail-container {
   margin-right: 8px;
-  height: 94px;
-  width: 168px;
 }
 
 .up-next-container .list-item-thumbnail {
   object-fit: scale-down; 
   width: 168px;
+  height: 94px;
 }
 
 .up-next-container .list-item-title {
