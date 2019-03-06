@@ -8,7 +8,7 @@ export default (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_CHANNELS:
-      return { ...action.payload.channels };
+      return { ...state, ...action.payload.channels };
     case RECEIVE_CHANNEL:
       return { ...state, [action.payload.channel.id]: action.payload.channel };
     case REMOVE_CHANNEL:

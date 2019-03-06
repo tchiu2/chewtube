@@ -4,7 +4,7 @@ import SideNav from './sidenav';
 
 const msp = ({ entities: { channels }, ui: { showNav } }) => {
   return {
-    channels: Object.values(channels),
+    channels: Object.values(channels).slice(0,5),
     showNav,
   }
 };
