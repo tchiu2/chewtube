@@ -51,6 +51,11 @@ class SideNav extends Component {
               link="https://terencechiu.me" 
               type="external" 
               icon={(<i className="fas fa-user-circle"></i>)}/>
+            <CardItem 
+              label="AngelList" 
+              link="https://angel.co/terence-chiu-1" 
+              type="external" 
+              icon={(<i className="fab fa-angellist"></i>)}/>
           </div>
         </div>
       </>
