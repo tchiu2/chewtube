@@ -36,8 +36,7 @@ class Channel extends Component {
               <h2>{channel.name}</h2> 
             </div>
             <div className="channel-header-links">
-              <NavLink exact to={`/channels/${channelId}`} activeClassName="selected">Home</NavLink>
-              <NavLink exact to={`/channels/${channelId}/videos`} activeClassName="selected">Videos</NavLink>
+              <NavLink exact to={`/channels/${channelId}/`} activeClassName="selected">Videos</NavLink>
               <NavLink exact to={`/channels/${channelId}/about`} activeClassName="selected">About</NavLink>
             </div>
           </div>
@@ -45,16 +44,12 @@ class Channel extends Component {
         <div className="channel-content">
           <Switch>
             <Route 
-              path="/channels/:channelId/videos" 
+              path="/channels/:channelId/" 
               render={() => <ChannelVideos {...this.props} />}
             />
             <Route 
               path="/channels/:channelId/about" 
               render={() => <ChannelAbout {...this.props} />}
-            />
-            <Route 
-              path="/channels/:channelId/" 
-              render={() => <ChannelHome {...this.props} />}
             />
           </Switch>
         </div>
