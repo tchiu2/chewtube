@@ -44,6 +44,7 @@ class Channel extends Component {
         <div className="channel-content">
           <Switch>
             <Route 
+              exact
               path="/channels/:channelId/" 
               render={() => <ChannelVideos {...this.props} />}
             />
